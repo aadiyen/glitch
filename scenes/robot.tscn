@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=3 uid="uid://ujag42uxvhtr"]
+
+[ext_resource type="Texture2D" uid="uid://b3qt0tiuklflg" path="res://assets/robot/Robot Adventurer character asset/Robot Idle.png" id="1_br0rw"]
+[ext_resource type="Script" uid="uid://brelhhbvtl450" path="res://script/robot.gd" id="1_i42o3"]
+[ext_resource type="Texture2D" uid="uid://bq62cr7rm5gcr" path="res://assets/robot/Robot Adventurer character asset/robot run with gun.png" id="3_rcrfe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykvnc"]
+atlas = ExtResource("1_br0rw")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i42o3"]
+atlas = ExtResource("1_br0rw")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwnim"]
+atlas = ExtResource("3_rcrfe")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5kvo"]
+atlas = ExtResource("3_rcrfe")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e20l1"]
+atlas = ExtResource("3_rcrfe")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujkns"]
+atlas = ExtResource("3_rcrfe")
+region = Rect2(3000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sycts"]
+atlas = ExtResource("3_rcrfe")
+region = Rect2(4000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ru31"]
+atlas = ExtResource("3_rcrfe")
+region = Rect2(5000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4ksi"]
+atlas = ExtResource("3_rcrfe")
+region = Rect2(6000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw6bu"]
+atlas = ExtResource("3_rcrfe")
+region = Rect2(7000, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rcrfe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykvnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i42o3")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwnim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5kvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e20l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujkns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sycts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ru31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4ksi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw6bu")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i42o3"]
+radius = 74.99999
+height = 539.9999
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i42o3"]
+radius = 120.41596
+
+[node name="robot" type="CharacterBody2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_i42o3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(31, -4)
+sprite_frames = SubResource("SpriteFrames_rcrfe")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 1.0
+offset = Vector2(0, -520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.999996, -290)
+shape = SubResource("CapsuleShape2D_i42o3")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(39.99997, -310)
+shape = SubResource("CircleShape2D_i42o3")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

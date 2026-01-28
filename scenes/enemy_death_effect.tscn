@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://vaxubege6i6n"]
+
+[ext_resource type="Texture2D" uid="uid://cixr7drh0sva6" path="res://assets/bullet/bulletempact/explosion-a.png" id="1_2jp21"]
+[ext_resource type="Script" uid="uid://bd18gf01t8j40" path="res://script/enemy_death_effect.gd" id="2_2jp21"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8luo"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iuy2"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs8a7"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa27d"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qhvq"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plfth"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbumj"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6krm5"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpxem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8luo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iuy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs8a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa27d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qhvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plfth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbumj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6krm5")
+}],
+"loop": false,
+"name": &"enemy_death",
+"speed": 12.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="EnemyDeathEffect" type="AnimatedSprite2D"]
+position = Vector2(0, -39)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tpxem")
+animation = &"enemy_death"
+autoplay = "enemy_death"
+frame = 7
+frame_progress = 1.0
+script = ExtResource("2_2jp21")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

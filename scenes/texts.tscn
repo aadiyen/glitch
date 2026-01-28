@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bssd5k8x46mbo"]
+
+[ext_resource type="FontFile" uid="uid://cjxv0qlwoc8w" path="res://assets/ui/fonnts/CyberpunkCraftpixPixel.otf" id="1_j44tr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s13s5"]
+font = ExtResource("1_j44tr")
+font_color = Color(0.979534, 0.65170854, 0.6285417, 1)
+
+[node name="texts" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "press arrow key to move left or right!!"
+label_settings = SubResource("LabelSettings_s13s5")

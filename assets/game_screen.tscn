@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://chuou7h0h2kwq"]
+
+[ext_resource type="Script" uid="uid://ph32j1xyyt6b" path="res://script/game_screen.gd" id="1_7id47"]
+[ext_resource type="PackedScene" uid="uid://th4desgo1c0s" path="res://assets/ui/health_bar.tscn" id="1_bt7pq"]
+[ext_resource type="Texture2D" uid="uid://cj77f2hi7j72g" path="res://assets/ui/icons8-pause-100.png" id="3_7id47"]
+
+[node name="GameScreen" type="CanvasLayer"]
+script = ExtResource("1_7id47")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 40.0
+offset_right = 4216.0
+offset_bottom = 1578.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" parent="MarginContainer" instance=ExtResource("1_bt7pq")]
+position = Vector2(112, -16)
+
+[node name="PauseTextureButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("3_7id47")
+
+[connection signal="pressed" from="MarginContainer/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]

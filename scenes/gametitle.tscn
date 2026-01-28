@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcxyibo4lsnwx"]
+
+[ext_resource type="FontFile" uid="uid://c0fkr6hgj32j" path="res://assets/ui/game_title_font/RubikGlitch-Regular.ttf" id="1_o7113"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fqbjb"]
+font = ExtResource("1_o7113")
+font_size = 100
+font_color = Color(0.8310236, 0.26158, 0.9999998, 1)
+
+[node name="gametitle" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Glitch"
+label_settings = SubResource("LabelSettings_fqbjb")

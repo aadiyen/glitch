@@ -1,0 +1,23 @@
+[gd_resource type="Theme" format=3 uid="uid://cdmnllfru3ho8"]
+
+[ext_resource type="FontFile" uid="uid://cjxv0qlwoc8w" path="res://assets/ui/fonnts/CyberpunkCraftpixPixel.otf" id="1_jj5tn"]
+[ext_resource type="StyleBox" uid="uid://dfjmngt6pjejr" path="res://assets/ui/new_style_box_flat.tres" id="2_6jlba"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35xb6"]
+bg_color = Color(0.19896391, 0.046416447, 0.22438166, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuuau"]
+bg_color = Color(0.29803923, 0.0627451, 0.37254903, 1)
+
+[resource]
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_jj5tn")
+Button/styles/disabled = ExtResource("2_6jlba")
+Button/styles/hover = ExtResource("2_6jlba")
+Button/styles/normal = ExtResource("2_6jlba")
+Button/styles/pressed = SubResource("StyleBoxFlat_35xb6")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_fuuau")

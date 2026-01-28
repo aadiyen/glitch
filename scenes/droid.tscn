@@ -1,0 +1,172 @@
+[gd_scene load_steps=25 format=3 uid="uid://jbesoryc0e71"]
+
+[ext_resource type="Texture2D" uid="uid://4jyyg0c8hurv" path="res://assets/shield_droid/shield droid/static idle.png" id="1_3qyvh"]
+[ext_resource type="Script" uid="uid://bkop3ke4fxo3f" path="res://script/droid.gd" id="1_b6sar"]
+[ext_resource type="Shader" uid="uid://bmeqpifkwuv0a" path="res://enemy__shaders/droid.gdshader" id="2_bwfj3"]
+[ext_resource type="Texture2D" uid="uid://cqvhxftebppf5" path="res://assets/shield_droid/shield droid/shock attack.png" id="3_bwfj3"]
+[ext_resource type="AudioStream" uid="uid://0ad34qkdm7sk" path="res://assets/sounds/explosion_sound/Explosion Medium 2-1.wav" id="4_lu340"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_svcmp"]
+resource_local_to_scene = true
+shader = ExtResource("2_bwfj3")
+shader_parameter/blink_color = Color(0.9867516, 0.9867516, 0.9867516, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmph3"]
+atlas = ExtResource("1_3qyvh")
+region = Rect2(0, 0, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6sar"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 0, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu340"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 31, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwfj3"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 62, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svcmp"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 93, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aah1m"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 124, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66gf0"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 155, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvf8c"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 186, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6py7v"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 217, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wulgg"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 248, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye0ky"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 279, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18yia"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 310, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fb8x"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 341, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cum8d"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 372, 90, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isdmx"]
+atlas = ExtResource("3_bwfj3")
+region = Rect2(0, 403, 90, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0ok3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmph3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6sar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu340")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwfj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svcmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aah1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66gf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvf8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6py7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wulgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye0ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18yia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fb8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cum8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isdmx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lu340"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6sar"]
+radius = 4.0
+height = 16.0
+
+[node name="droid" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_b6sar")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_svcmp")
+sprite_frames = SubResource("SpriteFrames_i0ok3")
+animation = &"walk"
+frame_progress = 0.9734198
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_lu340")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-1, 5)
+scale = Vector2(0.8, 1.4)
+shape = SubResource("CapsuleShape2D_b6sar")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lu340")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

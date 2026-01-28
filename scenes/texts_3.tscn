@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dufxcbkjratd1"]
+
+[ext_resource type="FontFile" uid="uid://cjxv0qlwoc8w" path="res://assets/ui/fonnts/CyberpunkCraftpixPixel.otf" id="1_yn7pg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s13s5"]
+font = ExtResource("1_yn7pg")
+font_color = Color(0.979534, 0.65170854, 0.6285417, 1)
+
+[node name="texts3" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "press space twice to 
+perform double jump!!"
+label_settings = SubResource("LabelSettings_s13s5")
