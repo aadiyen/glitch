@@ -54,7 +54,7 @@ func enemy_gravity(delta):
 	
 func idle_state(delta):
 	if !can_walk:
-		velocity.x = move_toward(velocity.x, 0 , speed * delta)
+		velocity.x = move_toward(velocity.x, 0 , speed * delta) # stop at idle state
 		current_state = State.Idle
 		
 		
