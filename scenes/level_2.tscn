@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://11lgsft8khdk" path="res://scenes/player.tscn" id="2_b4j7a"]
 [ext_resource type="Script" uid="uid://c08lx0ehcs5vh" path="res://script/camera_2d_2.gd" id="3_wo48x"]
 [ext_resource type="PackedScene" uid="uid://neiq7g81f0o1" path="res://scenes/eggturrent.tscn" id="4_eqxsl"]
+[ext_resource type="PackedScene" uid="uid://e0cbj18k71ju" path="res://scenes/kiiler_drone.tscn" id="5_b4j7a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne2mo"]
 texture = ExtResource("1_eqxsl")
@@ -265,3 +266,16 @@ script = ExtResource("3_wo48x")
 
 [node name="eggturrent" parent="." unique_id=1226334712 instance=ExtResource("4_eqxsl")]
 position = Vector2(368, 16)
+
+[node name="kiiler_drone" parent="." unique_id=1337869976 node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_b4j7a")]
+position = Vector2(280, -72)
+wait_time = 3
+patrol_points = NodePath("PatrolPoints2")
+
+[node name="PatrolPoints2" type="Node2D" parent="kiiler_drone" unique_id=422557368]
+
+[node name="Point" type="Marker2D" parent="kiiler_drone/PatrolPoints2" unique_id=445811852]
+position = Vector2(-96, 0)
+
+[node name="Point2" type="Marker2D" parent="kiiler_drone/PatrolPoints2" unique_id=1393794938]
+position = Vector2(88, 0)
