@@ -130,7 +130,7 @@ func player_death():
 	var player_death_effect_instance = player_death_effect.instantiate() as Node2D
 	player_death_effect_instance.global_position = global_position
 	get_parent().add_child(player_death_effect_instance)
-	$"../../AudioStreamPlayer".stop()
+	#$"../../AudioStreamPlayer".stop()
 	queue_free()
 	
 	

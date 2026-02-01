@@ -110,9 +110,10 @@ func _on_timer_timeout() -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.get_parent().has_method("get_damage_amount"):
 		var node = area.get_parent() as Node2D
-		var tween = get_tree().create_tween()  # hit shaders 
+		# hit shaders
+		var tween = get_tree().create_tween() 
 		tween.tween_method(SetShader_BlinkIntensity,1,0,0.5) # hit shaders
-		
+		# camera shake effect
 		var cam = get_viewport().get_camera_2d()
 		if cam:
 			cam.start_shake(0.12,7)

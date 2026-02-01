@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
+var enemy_death_effect = preload("res://scenes/enemy_explosion_2.tscn")
+
 @onready var timer: Timer = $Timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var speed : int = 100
 @export var wait_time : int = 3
 @export var patrol_points : Node
+@export var damage_amount : int = 1
+
 
 enum State {Walk,Idle}
 var direction : Vector2 = Vector2.LEFT
@@ -14,7 +18,7 @@ var current_point : Vector2
 var current_point_position : int
 var can_walk : bool
 var current_state : State
-var health_amount : int = 1
+var health_amount : int = 5
 
 func _ready() :
 	if patrol_points!= null:
@@ -71,10 +75,32 @@ func enemy_animation():
 	elif current_state == State.Walk and can_walk:
 		animated_sprite_2d.play("walk")
 	
-
-	
-
-
 func _on_timer_timeout() -> void:
 	can_walk = true
+	
+	
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.get_parent().has_method("get_damage_amount"):
+		var node = area.get_parent() as Node2D
+		# hit shader for enemy
+		var tween =  get_tree().create_tween()
+		tween.tween_method(SetShader_BlinkIntensity,1,0,0.5)
+		# camera shake
+		var cam = get_viewport().get_camera_2d()
+		if cam:
+			cam.start_shake(0.12,7)
+		
+		health_amount -= node.damage_amount
+	if health_amount <= 0:
+		var  enemy_death_effect_instance = enemy_death_effect.instantiate()
+		enemy_death_effect_instance.global_position = global_position
+		get_parent().add_child(enemy_death_effect_instance)
+		print("enemy death effect")
+		queue_free()
+		
+	
+func SetShader_BlinkIntensity(newValue : float):
+	animated_sprite_2d.material.set_shader_parameter("blink_intensity",newValue)
+	
 	
