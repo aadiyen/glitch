@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dkijuodmjc2dv" path="res://script/kiiler_drone.gd" id="1_xryc1"]
 [ext_resource type="Texture2D" uid="uid://xew8r33taqa2" path="res://assets/level_2/V1/warped city files/SPRITES/misc/drone/drone-1.png" id="2_cns4n"]
+[ext_resource type="Shader" uid="uid://bg32vdhtv7de" path="res://enemy__shaders/kiiler_drone.gdshader" id="2_wvn0k"]
 [ext_resource type="Texture2D" uid="uid://hrtt4qw0biyf" path="res://assets/level_2/V1/warped city files/SPRITES/misc/drone/drone-2.png" id="3_wvn0k"]
 [ext_resource type="Texture2D" uid="uid://diqnawurh1b7p" path="res://assets/level_2/V1/warped city files/SPRITES/misc/drone/drone-3.png" id="4_abtpl"]
 [ext_resource type="Texture2D" uid="uid://be0wxe7vy5dji" path="res://assets/level_2/V1/warped city files/SPRITES/misc/drone/drone-4.png" id="5_p50ja"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abtpl"]
+shader = ExtResource("2_wvn0k")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xryc1"]
 atlas = ExtResource("4_abtpl")
@@ -57,13 +63,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3tyng"]
 radius = 16.0
 
-[node name="kiiler_drone" type="CharacterBody2D" unique_id=1337869976 node_paths=PackedStringArray("patrol_points")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xryc1"]
+radius = 16.0
+
+[node name="kiiler_drone" type="CharacterBody2D" unique_id=1337869976 node_paths=PackedStringArray("patrol_points") groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_xryc1")
 speed = 2500
-wait_time = null
 patrol_points = NodePath("PatrolPoints")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=279044060]
+material = SubResource("ShaderMaterial_abtpl")
 position = Vector2(5, -26)
 sprite_frames = SubResource("SpriteFrames_qhx1y")
 animation = &"walk"
@@ -84,4 +95,14 @@ shape = SubResource("CircleShape2D_3tyng")
 wait_time = 3.0
 autostart = true
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1984792509]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1026779739]
+position = Vector2(5, -19)
+shape = SubResource("CircleShape2D_xryc1")
+debug_color = Color(0.8380501, 0.23600104, 0.39033407, 0.41960785)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
