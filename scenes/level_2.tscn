@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bwoj3gufrhbj7" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/background/buildings-bg.png" id="8_que50"]
 [ext_resource type="Texture2D" uid="uid://nq17a1e5ftpn" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/background/near-buildings-bg.png" id="9_hey2k"]
 [ext_resource type="PackedScene" uid="uid://chuou7h0h2kwq" path="res://scenes/game_screen.tscn" id="10_que50"]
+[ext_resource type="PackedScene" uid="uid://csbcn2jwvyx34" path="res://scenes/turret.tscn" id="11_hey2k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne2mo"]
 texture = ExtResource("1_eqxsl")
@@ -444,3 +445,7 @@ position = Vector2(-96, 0)
 
 [node name="Point2" type="Marker2D" parent="kiiler_drone/PatrolPoints2" unique_id=219312245]
 position = Vector2(104, -8)
+
+[node name="turret" parent="." unique_id=323825474 instance=ExtResource("11_hey2k")]
+position = Vector2(216, -64)
+scale = Vector2(2, 2)
