@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://csbcn2jwvyx34"]
+
+[ext_resource type="Script" uid="uid://dln2p6a0a8mpv" path="res://script/turret.gd" id="1_el7wl"]
+[ext_resource type="Texture2D" uid="uid://t7ufwnj77kpg" path="res://assets/level_2/V1/warped city files/SPRITESHEETS/misc/turret-preview.png" id="1_x3mc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el7wl"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(0, 0, 25, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_485p4"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(25, 0, 25, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp6j5"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(50, 0, 25, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fjxm"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(75, 0, 25, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dirdf"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(100, 0, 25, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqfwu"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(125, 0, 25, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dv4j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el7wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_485p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp6j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fjxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dirdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqfwu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tg0ex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3mc5"]
+
+[node name="turret" type="CharacterBody2D" unique_id=323825474]
+script = ExtResource("1_el7wl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1570254622]
+sprite_frames = SubResource("SpriteFrames_0dv4j")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=739806287]
+shape = SubResource("CircleShape2D_tg0ex")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1205917572]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1631038012]
+shape = SubResource("CircleShape2D_x3mc5")
+debug_color = Color(0.9020791, 0.27372262, 0.38170764, 0.41960785)
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
