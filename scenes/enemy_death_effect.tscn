@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vaxubege6i6n"]
+[gd_scene format=3 uid="uid://vaxubege6i6n"]
 
 [ext_resource type="Texture2D" uid="uid://cixr7drh0sva6" path="res://assets/bullet/bulletempact/explosion-a.png" id="1_2jp21"]
 [ext_resource type="Script" uid="uid://bd18gf01t8j40" path="res://script/enemy_death_effect.gd" id="2_2jp21"]
@@ -72,9 +72,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnemyDeathEffect" type="AnimatedSprite2D"]
+[node name="EnemyDeathEffect" type="AnimatedSprite2D" unique_id=262015660]
 position = Vector2(0, -39)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tpxem")
 animation = &"enemy_death"
 autoplay = "enemy_death"
@@ -82,7 +82,7 @@ frame = 7
 frame_progress = 1.0
 script = ExtResource("2_2jp21")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1010457874]
 wait_time = 0.5
 one_shot = true
 autostart = true

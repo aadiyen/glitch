@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://nq17a1e5ftpn" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/background/near-buildings-bg.png" id="9_hey2k"]
 [ext_resource type="PackedScene" uid="uid://chuou7h0h2kwq" path="res://scenes/game_screen.tscn" id="10_que50"]
 [ext_resource type="PackedScene" uid="uid://csbcn2jwvyx34" path="res://scenes/turret.tscn" id="11_hey2k"]
+[ext_resource type="PackedScene" uid="uid://bg6s3dc8orp4a" path="res://scenes/mega_unit.tscn" id="12_172wr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne2mo"]
 texture = ExtResource("1_eqxsl")
@@ -434,6 +435,7 @@ transform = Transform2D(0.1, 0, 0, 0.1, 0, 0)
 
 [node name="kiiler_drone" parent="." unique_id=1337869976 node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_b4j7a")]
 position = Vector2(432, -16)
+scale = Vector2(1.5, 1.5)
 speed = 5000
 wait_time = 1
 patrol_points = NodePath("PatrolPoints2")
@@ -449,3 +451,6 @@ position = Vector2(104, -8)
 [node name="turret" parent="." unique_id=323825474 instance=ExtResource("11_hey2k")]
 position = Vector2(216, -64)
 scale = Vector2(2, 2)
+
+[node name="mega_unit" parent="." unique_id=242762023 instance=ExtResource("12_172wr")]
+position = Vector2(304, -40)

@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://bg6s3dc8orp4a"]
+
+[ext_resource type="Texture2D" uid="uid://vx8tgwi1fsly" path="res://assets/mrgaunit/mech-unit/spritesheet/mech-unit.png" id="1_lygmn"]
+[ext_resource type="Script" uid="uid://baxgiv1jsh2wt" path="res://script/mega_unit.gd" id="1_ta3qn"]
+[ext_resource type="Script" uid="uid://dloxf0agvkxtr" path="res://new_state_machine/state_machine2.gd" id="3_2mcej"]
+[ext_resource type="Script" uid="uid://ci0aseed5j3fb" path="res://new_state_machine/patrol2.gd" id="4_vqvg7"]
+[ext_resource type="Script" uid="uid://dm0kafgys5j1o" path="res://new_state_machine/chase2.gd" id="5_b7egi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta3qn"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mcej"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(96, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqvg7"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(192, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7egi"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(288, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51l4d"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(384, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqbvj"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(480, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a788"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(576, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l2ji"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(672, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xytp0"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(768, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igp08"]
+atlas = ExtResource("1_lygmn")
+region = Rect2(864, 0, 96, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndinb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta3qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mcej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqvg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7egi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51l4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqbvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a788")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l2ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xytp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igp08")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lygmn"]
+height = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lygmn"]
+radius = 107.33126
+
+[node name="mega_unit" type="CharacterBody2D" unique_id=242762023 groups=["Enemy"]]
+script = ExtResource("1_ta3qn")
+speed = 100
+chase_speed = 200
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=875931104]
+sprite_frames = SubResource("SpriteFrames_ndinb")
+animation = &"walk"
+autoplay = "walk"
+frame = 9
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1123037012]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_lygmn")
+
+[node name="wallray" type="RayCast2D" parent="." unique_id=1200680495]
+target_position = Vector2(-96, 0)
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=2113984926]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=525240962]
+shape = SubResource("CircleShape2D_lygmn")
+debug_color = Color(0.9669792, 0, 0.48014754, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="." unique_id=799634111]
+script = ExtResource("3_2mcej")
+
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=59387877]
+script = ExtResource("4_vqvg7")
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=1713521758]
+script = ExtResource("5_b7egi")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
