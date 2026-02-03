@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b5ykiys70tkuu"]
+[gd_scene format=3 uid="uid://b5ykiys70tkuu"]
 
 [ext_resource type="Texture2D" uid="uid://cmijtihkb4v40" path="res://assets/robotic spider/Spider/Spider.png" id="1_2hb1y"]
 [ext_resource type="Script" uid="uid://b6sj78me6hw5w" path="res://new_state_machine/makdi.gd" id="1_i2ajo"]
@@ -209,54 +209,52 @@ radius = 123.146255
 [sub_resource type="CircleShape2D" id="CircleShape2D_3o6cu"]
 radius = 17.464249
 
-[node name="Makdi" type="CharacterBody2D"]
+[node name="Makdi" type="CharacterBody2D" unique_id=709690936]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_i2ajo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1805179962]
 sprite_frames = SubResource("SpriteFrames_6pyhh")
 animation = &"attack"
-frame = 10
-frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1515980792]
 position = Vector2(-14, 21)
 shape = SubResource("CircleShape2D_2hb1y")
 
-[node name="WallRay" type="RayCast2D" parent="."]
+[node name="WallRay" type="RayCast2D" parent="." unique_id=1462649064]
 position = Vector2(-33, 17)
 target_position = Vector2(-64, 0)
 
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=265082573]
 collision_layer = 2
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=546543150]
 position = Vector2(-14, 21)
 shape = SubResource("CircleShape2D_i2ajo")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=1162514538]
 script = ExtResource("3_yxaa6")
 
-[node name="Patrol" type="Node" parent="StateMachine"]
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=1910779828]
 script = ExtResource("4_3o6cu")
 
-[node name="Chase" type="Node" parent="StateMachine"]
+[node name="Chase" type="Node" parent="StateMachine" unique_id=1831058261]
 script = ExtResource("5_qsex8")
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" unique_id=978712565]
 script = ExtResource("6_0rew8")
 
-[node name="AttackArea" type="Area2D" parent="." groups=["Enemy"]]
+[node name="AttackArea" type="Area2D" parent="." unique_id=352597424 groups=["Enemy"]]
 position = Vector2(-8, 0)
 collision_mask = 3
 
-[node name="Attack_CollisionShape" type="CollisionShape2D" parent="AttackArea"]
+[node name="Attack_CollisionShape" type="CollisionShape2D" parent="AttackArea" unique_id=60031591]
 position = Vector2(32, 8)
 shape = SubResource("CircleShape2D_3o6cu")
 
-[node name="Attack_CollisionShape2" type="CollisionShape2D" parent="AttackArea"]
+[node name="Attack_CollisionShape2" type="CollisionShape2D" parent="AttackArea" unique_id=1509793034]
 position = Vector2(-16, 8)
 shape = SubResource("CircleShape2D_3o6cu")
 

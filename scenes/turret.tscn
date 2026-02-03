@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dln2p6a0a8mpv" path="res://script/turret.gd" id="1_el7wl"]
 [ext_resource type="Texture2D" uid="uid://t7ufwnj77kpg" path="res://assets/level_2/V1/warped city files/SPRITESHEETS/misc/turret-preview.png" id="1_x3mc5"]
+[ext_resource type="Shader" uid="uid://drkshxgoenuhp" path="res://enemy__shaders/turret.gdshader" id="2_485p4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pp6j5"]
+shader = ExtResource("2_485p4")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el7wl"]
 atlas = ExtResource("1_x3mc5")
@@ -54,18 +60,23 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tg0ex"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3mc5"]
 
-[node name="turret" type="CharacterBody2D" unique_id=323825474]
+[node name="turret" type="CharacterBody2D" unique_id=323825474 groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_el7wl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1570254622]
+material = SubResource("ShaderMaterial_pp6j5")
 sprite_frames = SubResource("SpriteFrames_0dv4j")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=739806287]
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_tg0ex")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1205917572]
@@ -73,6 +84,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1631038012]
+scale = Vector2(1.6, 1.6)
 shape = SubResource("CircleShape2D_x3mc5")
 debug_color = Color(0.9020791, 0.27372262, 0.38170764, 0.41960785)
 
