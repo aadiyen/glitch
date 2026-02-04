@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://11lgsft8khdk"]
+[gd_scene format=3 uid="uid://11lgsft8khdk"]
 
 [ext_resource type="Script" uid="uid://xvcljh6rnnx6" path="res://script/player.gd" id="1_60mlk"]
 [ext_resource type="Texture2D" uid="uid://baslyhb72omg3" path="res://assets/player spritesheet/Player/Idle/Idle1.png" id="1_dqkch"]
@@ -327,7 +327,7 @@ _data = {
 &"hit": SubResource("Animation_wnwbv")
 }
 
-[node name="player" type="CharacterBody2D" groups=["player"]]
+[node name="player" type="CharacterBody2D" unique_id=1786587999 groups=["player"]]
 position = Vector2(0, -40)
 collision_layer = 2
 script = ExtResource("1_60mlk")
@@ -337,36 +337,35 @@ jump_horizontal = 250
 speed_slowdown = 18000
 jump_count = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=746860469]
 material = SubResource("ShaderMaterial_wqfne")
 position = Vector2(0, 17)
 sprite_frames = SubResource("SpriteFrames_3v2ag")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=876182123]
 visible = false
 position = Vector2(-2, 31)
 shape = SubResource("CapsuleShape2D_pf23h")
 
-[node name="Muzzle" type="Marker2D" parent="."]
+[node name="Muzzle" type="Marker2D" parent="." unique_id=914452303]
 position = Vector2(30, 14)
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=504608838]
 collision_layer = 2
 collision_mask = 5
 
-[node name="HurtboxCollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="HurtboxCollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1433773984]
 position = Vector2(-2, 30)
 shape = SubResource("CapsuleShape2D_dt7fs")
+disabled = true
 debug_color = Color(0.66263944, 0.049543567, 0.3058385, 0.41960785)
 
-[node name="HitAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_487ah")
-}
+[node name="HitAnimationPlayer" type="AnimationPlayer" parent="." unique_id=403051636]
+libraries/ = SubResource("AnimationLibrary_487ah")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=466897900]
 stream = ExtResource("30_wqfne")
 volume_db = -15.0
 

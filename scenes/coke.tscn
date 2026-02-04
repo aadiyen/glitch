@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d4clnxl1k54ye"]
+
+[ext_resource type="Texture2D" uid="uid://tdetqqtc6uml" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-coke/banner-coke-1.png" id="1_t8hna"]
+[ext_resource type="Texture2D" uid="uid://bpq64rsi186ff" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-coke/banner-coke-2.png" id="2_le8pl"]
+[ext_resource type="Texture2D" uid="uid://dx3fuheeibx27" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-coke/banner-coke-3.png" id="3_kgnxl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7mh7"]
+atlas = ExtResource("1_t8hna")
+region = Rect2(0, 0, 27, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjwy8"]
+atlas = ExtResource("2_le8pl")
+region = Rect2(0, 0, 27, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls5qp"]
+atlas = ExtResource("3_kgnxl")
+region = Rect2(0, 0, 27, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq26l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7mh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjwy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls5qp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="coke" type="AnimatedSprite2D" unique_id=992950410]
+sprite_frames = SubResource("SpriteFrames_kq26l")
+autoplay = "default"
+frame_progress = 0.94036627
