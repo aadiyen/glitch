@@ -13,7 +13,7 @@ var current_state : bool # current state of the enemy
 
 
 
-var health_amount : int = 8
+var health_amount : int = 2
 
 func _ready() -> void:
 	current_state = State.Idle

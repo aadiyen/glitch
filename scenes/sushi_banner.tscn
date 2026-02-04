@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://pibpo2u4hw2g"]
+
+[ext_resource type="Texture2D" uid="uid://1xfsje8juvyl" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-sushi/banner-sushi-1.png" id="1_vfc6r"]
+[ext_resource type="Texture2D" uid="uid://bvvih6irhq0h2" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-sushi/banner-sushi-2.png" id="2_0ttjd"]
+[ext_resource type="Texture2D" uid="uid://c2vy5h5x706em" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-sushi/banner-sushi-3.png" id="3_0xbmb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8flcv"]
+atlas = ExtResource("1_vfc6r")
+region = Rect2(0, 0, 36, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urt4k"]
+atlas = ExtResource("2_0ttjd")
+region = Rect2(0, 0, 36, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o8gu"]
+atlas = ExtResource("3_0xbmb")
+region = Rect2(0, 0, 36, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hclfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8flcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urt4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o8gu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="sushi banner" type="AnimatedSprite2D" unique_id=335526331]
+sprite_frames = SubResource("SpriteFrames_hclfp")
+autoplay = "default"
+frame = 2
+frame_progress = 0.51765406

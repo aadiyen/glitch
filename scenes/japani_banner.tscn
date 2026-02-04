@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://n8mr4seuho6l"]
+
+[ext_resource type="Texture2D" uid="uid://islxkkd1lxvy" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-neon/banner-neon-1.png" id="1_ftr6e"]
+[ext_resource type="Texture2D" uid="uid://nsj8li0uw48o" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-neon/banner-neon-2.png" id="2_glvl3"]
+[ext_resource type="Texture2D" uid="uid://wpueev0hniji" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-neon/banner-neon-3.png" id="3_lx2tf"]
+[ext_resource type="Texture2D" uid="uid://ddeoastf88apb" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-neon/banner-neon-4.png" id="4_bv0xq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4noyr"]
+atlas = ExtResource("1_ftr6e")
+region = Rect2(0, 0, 19, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17nui"]
+atlas = ExtResource("2_glvl3")
+region = Rect2(0, 0, 19, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh531"]
+atlas = ExtResource("3_lx2tf")
+region = Rect2(0, 0, 19, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tns41"]
+atlas = ExtResource("4_bv0xq")
+region = Rect2(0, 0, 19, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v78re"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4noyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17nui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh531")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tns41")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="japani banner" type="AnimatedSprite2D" unique_id=837634885]
+sprite_frames = SubResource("SpriteFrames_v78re")
+autoplay = "default"
+frame_progress = 0.71581346

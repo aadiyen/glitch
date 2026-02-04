@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bkqdc7pl27wuo"]
+
+[ext_resource type="Texture2D" uid="uid://b5cy46wull5ux" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/hotel-sign.png" id="1_xq52i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1sye"]
+atlas = ExtResource("1_xq52i")
+region = Rect2(0, 0, 68, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qb246"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1sye")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="hotel sign" type="AnimatedSprite2D" unique_id=1240442161]
+sprite_frames = SubResource("SpriteFrames_qb246")
+frame_progress = 0.88340914

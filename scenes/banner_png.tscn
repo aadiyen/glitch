@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d3ts2jqgp1u28"]
+
+[ext_resource type="Texture2D" uid="uid://rl052l8misc5" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/props/banner-small.png" id="1_u626h"]
+
+[node name="banner_png" type="Sprite2D" unique_id=465238803]
+texture = ExtResource("1_u626h")
