@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq4mb1wfqk5mt"]
+[gd_scene format=3 uid="uid://bq4mb1wfqk5mt"]
 
 [ext_resource type="Texture2D" uid="uid://byq7dnj78jg63" path="res://assets/bullet/player-shoot/player-shoot1.png" id="1_eoqba"]
 [ext_resource type="Texture2D" uid="uid://dyjf8vc856j4i" path="res://assets/bullet/player-shoot/player-shoot2.png" id="2_qncy5"]
@@ -45,20 +45,21 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qncy5"]
 radius = 6.0
 
-[node name="bullet" type="AnimatedSprite2D"]
+[node name="bullet" type="AnimatedSprite2D" unique_id=1108725121]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_1cfmv")
 animation = &"shoot"
 frame = 3
 frame_progress = 1.0
 script = ExtResource("5_qncy5")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1635114592]
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1089827258]
 collision_layer = 2
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2119625556]
 position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_qncy5")
 

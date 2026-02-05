@@ -39,6 +39,10 @@ window/stretch/mode="viewport"
 movie_writer/ogv/encoding_speed=1
 movie_writer/movie_file="D:/2_devlog/movementenvironment.tscn.avi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/glitch_intro/plugin.cfg")
+
 [input]
 
 jump={

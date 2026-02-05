@@ -115,8 +115,6 @@ material = SubResource("ShaderMaterial_tqbvj")
 sprite_frames = SubResource("SpriteFrames_ndinb")
 animation = &"walk"
 autoplay = "walk"
-frame = 9
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1123037012]
 position = Vector2(0, 8)

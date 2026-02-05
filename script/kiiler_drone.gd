@@ -100,7 +100,19 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		queue_free()
 		
 	
+
+	
+		
+	
 func SetShader_BlinkIntensity(newValue : float):
 	animated_sprite_2d.material.set_shader_parameter("blink_intensity",newValue)
 	
 	
+
+
+#func _on_hurtbox_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("player"):
+		#var enemy_death_effect_instance = enemy_death_effect.instantiate()
+		#enemy_death_effect_instance.global_position = global_position
+		#get_parent().add_child(enemy_death_effect_instance)
+		#queue_free()
