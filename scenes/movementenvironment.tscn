@@ -2,11 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ddooy5rsqeplp" path="res://assets/platform/tileset.png" id="1_bjtex"]
 [ext_resource type="PackedScene" uid="uid://11lgsft8khdk" path="res://scenes/player.tscn" id="2_etqix"]
-[ext_resource type="PackedScene" uid="uid://d01ty7vxip58u" path="res://scenes/spider.tscn" id="3_5cl4t"]
-[ext_resource type="PackedScene" uid="uid://ujag42uxvhtr" path="res://scenes/robot.tscn" id="4_4qbfd"]
-[ext_resource type="PackedScene" uid="uid://jbesoryc0e71" path="res://scenes/droid.tscn" id="5_0lb20"]
+[ext_resource type="Script" uid="uid://c08lx0ehcs5vh" path="res://script/camera_2d_2.gd" id="4_0lb20"]
 [ext_resource type="PackedScene" uid="uid://chuou7h0h2kwq" path="res://scenes/game_screen.tscn" id="6_flfu5"]
-[ext_resource type="Script" uid="uid://dx27fvaq4vhk3" path="res://script/player_camera.gd" id="7_5sihk"]
 [ext_resource type="PackedScene" uid="uid://b5ykiys70tkuu" path="res://new_state_machine/makdi.tscn" id="8_5sihk"]
 
 [sub_resource type="GDScript" id="GDScript_5cl4t"]
@@ -259,71 +256,23 @@ transform = Transform2D(0.1, 0, 0, 0.1, 11, 2)
 
 [node name="enemies" type="Node" parent="." unique_id=300503147]
 
-[node name="droid" parent="enemies" unique_id=1420924446 instance=ExtResource("5_0lb20")]
-position = Vector2(520, 32)
-scale = Vector2(2, 2)
-
-[node name="PatrolPoints" type="Node2D" parent="enemies/droid" unique_id=132446733]
-
-[node name="point1" type="Marker2D" parent="enemies/droid/PatrolPoints" unique_id=1296853713]
-position = Vector2(-128, 8)
-
-[node name="point2" type="Marker2D" parent="enemies/droid/PatrolPoints" unique_id=814795548]
-position = Vector2(112, 8)
-
-[node name="robot" parent="enemies/droid" unique_id=1210964576 node_paths=PackedStringArray("patrol_points") instance=ExtResource("4_4qbfd")]
-position = Vector2(220, 140)
-scale = Vector2(0.05, 0.05)
-patrol_points = NodePath("PatrolPoints")
-
-[node name="PatrolPoints" type="Node2D" parent="enemies/droid/robot" unique_id=431337950]
-
-[node name="point1" type="Marker2D" parent="enemies/droid/robot/PatrolPoints" unique_id=355216159]
-position = Vector2(-1189.9998, 119.999985)
-
-[node name="point2" type="Marker2D" parent="enemies/droid/robot/PatrolPoints" unique_id=144179049]
-position = Vector2(1319.9996, 149.99997)
-
-[node name="spider" parent="enemies" unique_id=1669620177 node_paths=PackedStringArray("patrol_points") instance=ExtResource("3_5cl4t")]
-position = Vector2(1544, 392)
-patrol_points = NodePath("PatrolPoints")
-
-[node name="PatrolPoints" type="Node2D" parent="enemies/spider" unique_id=1516226130]
-
-[node name="point1" type="Marker2D" parent="enemies/spider/PatrolPoints" unique_id=1011969496]
-position = Vector2(-128.8889, 15.555557)
-
-[node name="point2" type="Marker2D" parent="enemies/spider/PatrolPoints" unique_id=1759354951]
-position = Vector2(198.88892, 15.55555)
-
-[node name="spider2" parent="enemies" unique_id=39021036 node_paths=PackedStringArray("patrol_points") instance=ExtResource("3_5cl4t")]
-position = Vector2(616.00006, 288)
-speed = 5000
-patrol_points = NodePath("PatrolPoints")
-
-[node name="PatrolPoints" type="Node2D" parent="enemies/spider2" unique_id=651538068]
-
-[node name="point1" type="Marker2D" parent="enemies/spider2/PatrolPoints" unique_id=12667457]
-position = Vector2(-132.22223, 8.88889)
-
-[node name="point2" type="Marker2D" parent="enemies/spider2/PatrolPoints" unique_id=1058476943]
-position = Vector2(198.88892, 15.55555)
-
 [node name="player" type="Node" parent="." unique_id=1270769248]
 
-[node name="player" parent="player" unique_id=929358958 instance=ExtResource("2_etqix")]
-position = Vector2(262, 8)
-speed = 1000
+[node name="player" parent="player" unique_id=1786587999 instance=ExtResource("2_etqix")]
+z_index = 2
+position = Vector2(464, -240)
 
-[node name="PlayerCamera" type="Camera2D" parent="player/player" unique_id=507187176 node_paths=PackedStringArray("player")]
-limit_enabled = false
-limit_left = 0
-limit_top = -202
-limit_right = 1145
-limit_bottom = 167
+[node name="Camera2D2" type="Camera2D" parent="player/player" unique_id=207735762]
+position = Vector2(0, 24)
+zoom = Vector2(0.9, 0.9)
+limit_left = 20
+limit_top = -510
+limit_right = 6304
+limit_bottom = 100
+limit_smoothed = true
 position_smoothing_enabled = true
-script = ExtResource("7_5sihk")
-player = NodePath("..")
+editor_draw_limits = true
+script = ExtResource("4_0lb20")
 
 [node name="Makdi" parent="." unique_id=918045445 instance=ExtResource("8_5sihk")]
 position = Vector2(640, -48)

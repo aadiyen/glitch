@@ -38,7 +38,7 @@ func _physics_process(delta):
 
 func play_anim(anim_name : String):
 	if sprite.sprite_frames.has_animation(anim_name):
-		sprite.play()
+		sprite.play(anim_name)
 		
 func set_direction(dir : float):
 	if dir == 0 : return

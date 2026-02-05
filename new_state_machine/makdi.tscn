@@ -2,10 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://cmijtihkb4v40" path="res://assets/robotic spider/Spider/Spider.png" id="1_2hb1y"]
 [ext_resource type="Script" uid="uid://b6sj78me6hw5w" path="res://new_state_machine/makdi.gd" id="1_i2ajo"]
+[ext_resource type="Shader" uid="uid://cubamqy36s3me" path="res://enemy__shaders/makdi.gdshader" id="2_qsex8"]
 [ext_resource type="Script" uid="uid://fncbv5dnithd" path="res://new_state_machine/state_machine.gd" id="3_yxaa6"]
 [ext_resource type="Script" uid="uid://btshjtom1vl0k" path="res://new_state_machine/patrol.gd" id="4_3o6cu"]
 [ext_resource type="Script" uid="uid://cldfex8f6ckni" path="res://new_state_machine/chase.gd" id="5_qsex8"]
 [ext_resource type="Script" uid="uid://3pfb2l2vs55a" path="res://new_state_machine/attack.gd" id="6_0rew8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rew8"]
+shader = ExtResource("2_qsex8")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hb1y"]
 atlas = ExtResource("1_2hb1y")
@@ -209,12 +215,16 @@ radius = 123.146255
 [sub_resource type="CircleShape2D" id="CircleShape2D_3o6cu"]
 radius = 17.464249
 
-[node name="Makdi" type="CharacterBody2D" unique_id=709690936]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qsex8"]
+radius = 12.373808
+
+[node name="Makdi" type="CharacterBody2D" unique_id=709690936 groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_i2ajo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1805179962]
+material = SubResource("ShaderMaterial_0rew8")
 sprite_frames = SubResource("SpriteFrames_6pyhh")
 animation = &"attack"
 
@@ -258,6 +268,16 @@ shape = SubResource("CircleShape2D_3o6cu")
 position = Vector2(-16, 8)
 shape = SubResource("CircleShape2D_3o6cu")
 
+[node name="HurtBox" type="Area2D" parent="." unique_id=616139652]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1355524050]
+position = Vector2(-13, 21)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_qsex8")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

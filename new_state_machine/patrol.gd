@@ -15,4 +15,4 @@ func update(_delta):
 	owner.velocity.x = dir * owner.speed 
 
 func exit():
-	pass
+	owner.velocity.x = 0

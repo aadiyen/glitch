@@ -15,4 +15,4 @@ func update(_delta):
 		owner.state_machine.change_state("Patrol")
 
 func exit():
-	owner.velocity.x = 0
+	pass
