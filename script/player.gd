@@ -166,4 +166,7 @@ func _on_hurtbox_body_entered(body: Node2D):
 func _on_hurtbox_area_entered(area: Area2D) -> void: # for dyna,mic type enemy damage
 	if area.is_in_group("Enemy"):
 		hit_animation_player.play("hit")
+		HealthManager.decrease_health(1)
+	if HealthManager.current_health == 0:
+		player_death()
 		print("enemy attack")

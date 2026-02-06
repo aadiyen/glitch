@@ -19,6 +19,7 @@ const GRAVITY : int = 1000
 @onready var attack_collision: CollisionShape2D = $AttackArea/Attack_CollisionShape # to disable the collision initially
 @onready var attack_area: Area2D = $AttackArea
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+#@onready var hurt_collision: CollisionShape2D = $HurtBox/hurt_collision #hurtbox collision
 
 
 
@@ -44,6 +45,7 @@ func _physics_process(delta: float):
 func play_anim(anim_name : String):
 	if sprite.sprite_frames.has_animation(anim_name):
 		sprite.play(anim_name)
+		print(anim_name)
 		
 
 		
@@ -55,7 +57,7 @@ func set_direction(dir : float):
 	sprite.flip_h = (dir<0)
 	wall_ray.target_position.x = 40 if dir > 0 else -40
 	collision_shape.position.x = -5 if dir > 0 else 5
-	
+	#hurt_collision.position.x =  -5 if dir > 0 else 5
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -94,6 +96,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		
 		
 		health_amount -= node.damage_amount
+		
 	if health_amount <= 0:
 		var enemy_death_effect_instance = enemy_death_effect.instantiate()
 		enemy_death_effect_instance.global_position = global_position
@@ -102,4 +105,3 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 			
 func SetShader_BlinkIntensity(new_Value : float):
 	animated_sprite_2d.material.set_shader_parameter("blink_intensity",new_Value)
-		
