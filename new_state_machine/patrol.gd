@@ -3,7 +3,9 @@ var moving_right = true
 
 func enter():
 	owner.play_anim("walk")
+	print(owner)
 	
+	 
 func update(_delta):
 	if owner.wall_ray.is_colliding() or \
 	   (moving_right and owner.global_position.x >= owner.patrol_right_x) or \
@@ -15,4 +17,5 @@ func update(_delta):
 	owner.velocity.x = dir * owner.speed 
 
 func exit():
-	owner.velocity.x = 0
+	pass
+	

@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://be0wxe7vy5dji" path="res://assets/level_2/V1/warped city files/SPRITES/misc/drone/drone-4.png" id="5_p50ja"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_abtpl"]
+resource_local_to_scene = true
 shader = ExtResource("2_wvn0k")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
