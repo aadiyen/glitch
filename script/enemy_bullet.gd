@@ -13,5 +13,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void: # body signal trigger for  
 	if body.is_in_group("player"):
 		body.take_damage(10)
 		queue_free()
-	elif  body is TileMap:
+	elif  body is TileMapLayer:
 		queue_free()
