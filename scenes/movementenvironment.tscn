@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c08lx0ehcs5vh" path="res://script/camera_2d_2.gd" id="4_0lb20"]
 [ext_resource type="PackedScene" uid="uid://chuou7h0h2kwq" path="res://scenes/game_screen.tscn" id="6_flfu5"]
 [ext_resource type="PackedScene" uid="uid://bg6s3dc8orp4a" path="res://scenes/mega_unit.tscn" id="6_w77nr"]
+[ext_resource type="PackedScene" uid="uid://neiq7g81f0o1" path="res://scenes/eggturrent.tscn" id="7_w77nr"]
 [ext_resource type="PackedScene" uid="uid://b5ykiys70tkuu" path="res://new_state_machine/makdi.tscn" id="8_5sihk"]
 
 [sub_resource type="GDScript" id="GDScript_5cl4t"]
@@ -277,7 +278,10 @@ editor_draw_limits = true
 script = ExtResource("4_0lb20")
 
 [node name="Makdi" parent="." unique_id=918045445 instance=ExtResource("8_5sihk")]
-position = Vector2(608, -40)
+position = Vector2(488, 384)
 
 [node name="mega_unit" parent="." unique_id=242762023 instance=ExtResource("6_w77nr")]
 position = Vector2(1008, 432)
+
+[node name="eggturrent" parent="." unique_id=1226334712 instance=ExtResource("7_w77nr")]
+position = Vector2(584, 32)
