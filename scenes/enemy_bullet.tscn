@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fu4rq04teunv" path="res://assets/level1/V2/Sprites/enemy-shoot/enemy-shoot2.png" id="2_ckxic"]
 [ext_resource type="Texture2D" uid="uid://dtl5ncfxsr7mh" path="res://assets/level1/V2/Sprites/enemy-shoot/enemy-shoot3.png" id="3_02qb5"]
 [ext_resource type="Script" uid="uid://dxdc71t6h2wc7" path="res://script/enemy_bullet.gd" id="4_ckxic"]
+[ext_resource type="Script" uid="uid://b7oybhepxe74e" path="res://scenes/area_2d.gd" id="5_02qb5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rhp8"]
 atlas = ExtResource("1_38r62")
@@ -30,22 +31,26 @@ animations = [{
 "texture": SubResource("AtlasTexture_v2l1h")
 }],
 "loop": true,
-"name": &"default",
+"name": &"shoot",
 "speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_02qb5"]
 radius = 8.0
 
-[node name="enemy_bullet" type="AnimatedSprite2D" unique_id=1754186541]
+[node name="enemy_bullet" type="AnimatedSprite2D" unique_id=1754186541 groups=["Enemy"]]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_13kv7")
-frame = 2
-frame_progress = 0.15756519
+animation = &"shoot"
 script = ExtResource("4_ckxic")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=431724167]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_02qb5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1868517727]
+visible = false
 scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_02qb5")
 
