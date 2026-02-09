@@ -1,30 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://chuou7h0h2kwq"]
+[gd_scene format=3 uid="uid://chuou7h0h2kwq"]
 
 [ext_resource type="Script" uid="uid://ph32j1xyyt6b" path="res://script/game_screen.gd" id="1_7id47"]
 [ext_resource type="PackedScene" uid="uid://th4desgo1c0s" path="res://assets/ui/health_bar.tscn" id="1_bt7pq"]
 [ext_resource type="Texture2D" uid="uid://cj77f2hi7j72g" path="res://assets/ui/icons8-pause-100.png" id="3_7id47"]
+[ext_resource type="Texture2D" uid="uid://quvbxwja4yxc" path="res://assets/orb/asas.png" id="4_dv2sx"]
 
-[node name="GameScreen" type="CanvasLayer"]
+[node name="GameScreen" type="CanvasLayer" unique_id=811902787]
 script = ExtResource("1_7id47")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2119553654]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 56.0
-offset_top = 40.0
-offset_right = 4216.0
-offset_bottom = 1578.0
+offset_left = -16.0
+offset_top = 8.0
+offset_right = -106.0
+offset_bottom = 402.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="HealthBar" parent="MarginContainer" instance=ExtResource("1_bt7pq")]
-position = Vector2(112, -16)
-
-[node name="PauseTextureButton" type="TextureButton" parent="MarginContainer"]
+[node name="PauseTextureButton" type="TextureButton" parent="MarginContainer" unique_id=1052988894]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture_normal = ExtResource("3_7id47")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1936611009]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1708591093]
+custom_minimum_size = Vector2(53, 358)
+layout_mode = 2
+
+[node name="HealthBar" parent="MarginContainer/VBoxContainer/Control" unique_id=1495176343 instance=ExtResource("1_bt7pq")]
+position = Vector2(168, 24)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=741306790]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=128719543]
+custom_minimum_size = Vector2(356, 282)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Control" unique_id=411314975]
+position = Vector2(-290, 172.00003)
+scale = Vector2(20, 20)
+texture = ExtResource("4_dv2sx")
+offset = Vector2(26, 0)
+
+[node name="CollectibleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1157980262]
+layout_mode = 2
+theme_override_font_sizes/font_size = 109
+text = "0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1672773098]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4264.0
+offset_bottom = 2162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [connection signal="pressed" from="MarginContainer/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]

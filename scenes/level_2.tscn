@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://d3ts2jqgp1u28" path="res://scenes/banner_png.tscn" id="17_wdtqu"]
 [ext_resource type="PackedScene" uid="uid://dipc407y4088o" path="res://scenes/killzone.tscn" id="21_k6a82"]
 [ext_resource type="PackedScene" uid="uid://crdki5bxebcsy" path="res://scenes/platforn.tscn" id="22_1sb0y"]
+[ext_resource type="AudioStream" uid="uid://bxp88p4phxgyh" path="res://assets/musics/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="23_vhnap"]
+[ext_resource type="PackedScene" uid="uid://neiq7g81f0o1" path="res://scenes/eggturrent.tscn" id="24_vwfin"]
+[ext_resource type="PackedScene" uid="uid://t1firpc6qdhb" path="res://scenes/orbs.tscn" id="25_63d2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hey2k"]
 texture = ExtResource("2_wo48x")
@@ -845,3 +848,14 @@ position = Vector2(1360, 272)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=729405572]
 environment = SubResource("Environment_1sb0y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=423953561]
+stream = ExtResource("23_vhnap")
+autoplay = true
+parameters/looping = true
+
+[node name="eggturrent" parent="." unique_id=1226334712 instance=ExtResource("24_vwfin")]
+position = Vector2(4032, -16)
+
+[node name="orbs" parent="." unique_id=1527240508 instance=ExtResource("25_63d2t")]
+position = Vector2(304, -72)

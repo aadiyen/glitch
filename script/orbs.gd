@@ -15,6 +15,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print(award_amount)
 		
 		label.text = "%s" % award_amount # displaye the no of amount while getting in contact
+		Collectablemagager.give_pickup_award(award_amount)
 		label.show()
 	var tween = get_tree().create_tween()
 	tween.tween_property(label,"position",Vector2(label.position.x,label.position.y + -10),0.5).from_current # tween the property by 10 pixel

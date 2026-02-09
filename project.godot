@@ -25,6 +25,7 @@ config/icon="uid://cbqqov3o2de68"
 Global="*res://script/global.gd"
 HealthManager="*res://script/health_manager.gd"
 GameManager="*res://script/game_manager.gd"
+Collectablemagager="*uid://cv4aaggejc1dv"
 
 [display]
 
