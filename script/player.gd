@@ -170,3 +170,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void: # for dyna,mic type enemy d
 	if HealthManager.current_health == 0:
 		player_death()
 		print("enemy attack")
+	#var cam = get_viewport().get_camera_2d()
+	#if cam:
+		#cam.start_shake(0.2,9)

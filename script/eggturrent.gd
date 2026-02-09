@@ -38,7 +38,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if get_parent().has_method("get_damage_amount"):
-		var node = area.get_parent() 
+		var node = area.get_parent()  as Node2D
 		
 		# decrease health
 		health_amount -=node.damage_amount

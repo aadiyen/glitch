@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://t1firpc6qdhb"]
+[gd_scene format=3 uid="uid://t1firpc6qdhb"]
 
 [ext_resource type="Script" uid="uid://x1nfdloalel5" path="res://script/orbs.gd" id="1_he33d"]
 [ext_resource type="Texture2D" uid="uid://dalqq8damoll3" path="res://assets/collectibles/coins-chests-etc-2-0-noborders.png" id="2_534f4"]
@@ -36,32 +36,32 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fbsp1"]
 radius = 8.0
 
-[node name="orbs" type="Node2D"]
+[node name="orbs" type="Node2D" unique_id=1527240508]
 script = ExtResource("1_he33d")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=442265633]
 position = Vector2(-1, 0)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5yvpt")
 autoplay = "default"
-frame = 3
-frame_progress = 0.5934967
+frame = 1
+frame_progress = 0.4034576
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=651344074]
 collision_layer = 17
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=822746607]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_fbsp1")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1302565523]
 offset_left = -20.0
 offset_top = -14.0
 offset_right = 20.0
