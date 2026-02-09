@@ -4,9 +4,16 @@
 [ext_resource type="Script" uid="uid://c73cgbixd5n5c" path="res://script/eggturrent.gd" id="1_s8uaa"]
 [ext_resource type="Texture2D" uid="uid://crefa0p1csxli" path="res://assets/eggturrent/egg turret/Idle/idle2.png" id="2_1jmry"]
 [ext_resource type="Texture2D" uid="uid://bhefe8g7pn1b8" path="res://assets/eggturrent/egg turret/Shoot/shoot1.png" id="2_d0pop"]
+[ext_resource type="Shader" uid="uid://cxm0u7i0hvlqw" path="res://enemy__shaders/eggturrent.gdshader" id="2_qwslr"]
 [ext_resource type="Texture2D" uid="uid://fjp82lmyjvgc" path="res://assets/eggturrent/egg turret/Shoot/shoot2.png" id="3_qwslr"]
 [ext_resource type="Texture2D" uid="uid://dj2j7gmhoc030" path="res://assets/eggturrent/egg turret/Shoot/shoot3.png" id="4_5rybu"]
 [ext_resource type="Texture2D" uid="uid://kv6rcey66dps" path="res://assets/eggturrent/egg turret/Shoot/shoot4.png" id="5_a768i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rybu"]
+resource_local_to_scene = true
+shader = ExtResource("2_qwslr")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hgnh0"]
 atlas = ExtResource("1_dwsnq")
@@ -70,10 +77,15 @@ height = 48.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8uaa"]
 radius = 121.85237
 
-[node name="eggturrent" type="CharacterBody2D" unique_id=1226334712]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8uaa"]
+radius = 16.0
+height = 64.0
+
+[node name="eggturrent" type="CharacterBody2D" unique_id=1226334712 groups=["Enemy"]]
 script = ExtResource("1_s8uaa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1138490881]
+material = SubResource("ShaderMaterial_5rybu")
 position = Vector2(0, -31)
 sprite_frames = SubResource("SpriteFrames_nxmbn")
 animation = &"shoot"
@@ -89,7 +101,7 @@ shape = SubResource("CapsuleShape2D_35ee6")
 position = Vector2(-11, -28)
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1697957100]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=519049396]
@@ -98,9 +110,19 @@ shape = SubResource("CircleShape2D_s8uaa")
 debug_color = Color(0.96634, 0, 0.48410767, 0.41960785)
 
 [node name="FireTimer" type="Timer" parent="." unique_id=2120622208]
-wait_time = 2.0
+wait_time = 1.5
 autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=212793305]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=763155146]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_s8uaa")
+debug_color = Color(0.85140014, 0.3563256, 0.29282334, 0.41960785)
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
