@@ -279,13 +279,13 @@ editor_draw_limits = true
 script = ExtResource("4_0lb20")
 
 [node name="Makdi" parent="." unique_id=918045445 instance=ExtResource("8_5sihk")]
-position = Vector2(488, 384)
+position = Vector2(1016, -48)
 
 [node name="mega_unit" parent="." unique_id=242762023 instance=ExtResource("6_w77nr")]
 position = Vector2(1008, 432)
 
 [node name="eggturrent" parent="." unique_id=1226334712 instance=ExtResource("7_w77nr")]
-position = Vector2(584, 32)
+position = Vector2(1576, 456)
 
 [node name="orbs" parent="." unique_id=2020730995 instance=ExtResource("8_4yrbq")]
 position = Vector2(800, 0)

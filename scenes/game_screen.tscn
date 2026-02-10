@@ -6,16 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://quvbxwja4yxc" path="res://assets/orb/asas.png" id="4_dv2sx"]
 
 [node name="GameScreen" type="CanvasLayer" unique_id=811902787]
+offset = Vector2(46, 0)
+transform = Transform2D(1, 0, 0, 1, 46, 0)
 script = ExtResource("1_7id47")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2119553654]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = 8.0
-offset_right = -106.0
-offset_bottom = 402.0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 4398.0
+offset_bottom = 1178.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -33,7 +35,6 @@ texture_normal = ExtResource("3_7id47")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1936611009]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1708591093]
@@ -41,7 +42,7 @@ custom_minimum_size = Vector2(53, 358)
 layout_mode = 2
 
 [node name="HealthBar" parent="MarginContainer/VBoxContainer/Control" unique_id=1495176343 instance=ExtResource("1_bt7pq")]
-position = Vector2(168, 24)
+position = Vector2(179, 24)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=741306790]
 layout_mode = 2
@@ -51,14 +52,14 @@ custom_minimum_size = Vector2(356, 282)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Control" unique_id=411314975]
-position = Vector2(-290, 172.00003)
+position = Vector2(-290, 153)
 scale = Vector2(20, 20)
 texture = ExtResource("4_dv2sx")
 offset = Vector2(26, 0)
 
 [node name="CollectibleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1157980262]
 layout_mode = 2
-theme_override_font_sizes/font_size = 109
+theme_override_font_sizes/font_size = 155
 text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1672773098]
