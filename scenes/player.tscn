@@ -341,8 +341,10 @@ jump_count = 2
 material = SubResource("ShaderMaterial_wqfne")
 position = Vector2(0, 17)
 sprite_frames = SubResource("SpriteFrames_3v2ag")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
+frame = 3
+frame_progress = 0.6644219
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=876182123]
 visible = false

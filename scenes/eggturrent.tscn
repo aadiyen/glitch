@@ -52,6 +52,11 @@ animations = [{
 "name": &"idle",
 "speed": 8.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wlcj")
@@ -88,10 +93,8 @@ script = ExtResource("1_s8uaa")
 material = SubResource("ShaderMaterial_5rybu")
 position = Vector2(0, -31)
 sprite_frames = SubResource("SpriteFrames_nxmbn")
-animation = &"shoot"
+animation = &"new_animation"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=174658137]
 position = Vector2(0, -24)

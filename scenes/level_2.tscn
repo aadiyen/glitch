@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cjn5nb7l4upes" path="res://assets/level1/V2/Environmet/tileset.png" id="1_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://11lgsft8khdk" path="res://scenes/player.tscn" id="2_b4j7a"]
 [ext_resource type="Texture2D" uid="uid://mxqxbwo2v600" path="res://assets/level_2/V1/warped city files/ENVIRONMENT/tileset.png" id="2_wo48x"]
+[ext_resource type="PackedScene" uid="uid://5otsf3pygiaw" path="res://scenes/platform.tscn" id="3_pc3at"]
 [ext_resource type="Script" uid="uid://c08lx0ehcs5vh" path="res://script/camera_2d_2.gd" id="3_wo48x"]
 [ext_resource type="PackedScene" uid="uid://e0cbj18k71ju" path="res://scenes/kiiler_drone.tscn" id="5_b4j7a"]
 [ext_resource type="PackedScene" uid="uid://b7wp65ra5xi8n" path="res://scenes/face_screen.tscn" id="6_172wr"]
@@ -25,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://bxp88p4phxgyh" path="res://assets/musics/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="23_vhnap"]
 [ext_resource type="PackedScene" uid="uid://neiq7g81f0o1" path="res://scenes/eggturrent.tscn" id="24_vwfin"]
 [ext_resource type="PackedScene" uid="uid://t1firpc6qdhb" path="res://scenes/orbs.tscn" id="25_63d2t"]
+[ext_resource type="PackedScene" uid="uid://b5ykiys70tkuu" path="res://new_state_machine/makdi.tscn" id="26_va6c3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hey2k"]
 texture = ExtResource("2_wo48x")
@@ -571,8 +573,9 @@ sources/1 = SubResource("TileSetAtlasSource_k22d5")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1sb0y"]
 
-[sub_resource type="Environment" id="Environment_1sb0y"]
+[sub_resource type="Environment" id="Environment_63d2t"]
 background_mode = 3
+ambient_light_source = 2
 
 [node name="Level2" type="Node2D" unique_id=1642695573]
 
@@ -580,7 +583,7 @@ background_mode = 3
 
 [node name="player" parent="Player" unique_id=1236376340 instance=ExtResource("2_b4j7a")]
 z_index = 2
-position = Vector2(176, -88)
+position = Vector2(1728, -96)
 
 [node name="Camera2D2" type="Camera2D" parent="Player/player" unique_id=494175981]
 position = Vector2(0, 24)
@@ -595,6 +598,9 @@ position_smoothing_speed = 3.0
 rotation_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("3_wo48x")
+
+[node name="platform" parent="Player" unique_id=1949906637 instance=ExtResource("3_pc3at")]
+position = Vector2(1728, -96)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1701074512]
 
@@ -722,7 +728,10 @@ position = Vector2(185.353, 1.726)
 scale = Vector2(0.6551496, 0.31606805)
 flip_h = true
 
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground" unique_id=408910577]
+
 [node name="GameScreen2" parent="." unique_id=1740098813 instance=ExtResource("10_que50")]
+offset = Vector2(0, 0)
 scale = Vector2(0.1, 0.1)
 transform = Transform2D(0.1, 0, 0, 0.1, 0, 0)
 
@@ -830,6 +839,24 @@ position = Vector2(-90.66667, -1.0172526e-05)
 [node name="Point2" type="Marker2D" parent="killerdrones/kiiler_drone5/PatrolPoints2" unique_id=624877533]
 position = Vector2(128, -4.7683716e-07)
 
+[node name="kiiler_drone6" parent="killerdrones" unique_id=2032616857 node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_b4j7a")]
+z_index = 1
+position = Vector2(1312, -56)
+scale = Vector2(1.5, 1.5)
+motion_mode = 1
+speed = 10000
+wait_time = 1
+patrol_points = NodePath("PatrolPoints2")
+
+[node name="PatrolPoints2" type="Node2D" parent="killerdrones/kiiler_drone6" unique_id=1712660753]
+position = Vector2(4.7683716e-07, 1.001358e-05)
+
+[node name="Point" type="Marker2D" parent="killerdrones/kiiler_drone6/PatrolPoints2" unique_id=728193360]
+position = Vector2(-90.66667, -1.0172526e-05)
+
+[node name="Point2" type="Marker2D" parent="killerdrones/kiiler_drone6/PatrolPoints2" unique_id=409179160]
+position = Vector2(128, -4.7683716e-07)
+
 [node name="megaunit" type="Node" parent="." unique_id=359855645]
 
 [node name="mega_unit" parent="megaunit" unique_id=242762023 instance=ExtResource("12_172wr")]
@@ -847,15 +874,83 @@ position = Vector2(2320, 528)
 position = Vector2(1360, 272)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=729405572]
-environment = SubResource("Environment_1sb0y")
+environment = SubResource("Environment_63d2t")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=423953561]
 stream = ExtResource("23_vhnap")
 autoplay = true
+playback_type = 1
 parameters/looping = true
 
-[node name="eggturrent" parent="." unique_id=1226334712 instance=ExtResource("24_vwfin")]
-position = Vector2(4032, -16)
+[node name="collectibles" type="Node" parent="." unique_id=1013272271]
 
-[node name="orbs" parent="." unique_id=1527240508 instance=ExtResource("25_63d2t")]
+[node name="orbs" parent="collectibles" unique_id=1527240508 instance=ExtResource("25_63d2t")]
+z_index = 1
 position = Vector2(304, -72)
+
+[node name="orbs2" parent="collectibles" unique_id=637640423 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(520, -72)
+
+[node name="orbs3" parent="collectibles" unique_id=1235448523 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(704, -152)
+
+[node name="orbs4" parent="collectibles" unique_id=952914120 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(528, -232)
+
+[node name="orbs5" parent="collectibles" unique_id=814945687 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(208, -232)
+
+[node name="orbs6" parent="collectibles" unique_id=943441971 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(520, -376)
+
+[node name="orbs7" parent="collectibles" unique_id=499522007 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(256, -384)
+
+[node name="orbs8" parent="collectibles" unique_id=1391806404 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(968, -72)
+
+[node name="orbs9" parent="collectibles" unique_id=887737204 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(1168, -72)
+
+[node name="orbs10" parent="collectibles" unique_id=1078142241 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(1736, -64)
+
+[node name="orbs11" parent="collectibles" unique_id=924711978 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(1984, -64)
+
+[node name="orbs12" parent="collectibles" unique_id=2075048136 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(2264, -64)
+
+[node name="orbs13" parent="collectibles" unique_id=1996790380 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(2880, -136)
+
+[node name="orbs14" parent="collectibles" unique_id=1620554024 instance=ExtResource("25_63d2t")]
+z_index = 1
+position = Vector2(3152, -136)
+
+[node name="eggturrent2" type="Node" parent="." unique_id=548039661]
+
+[node name="eggturrent2" parent="eggturrent2" unique_id=870956210 instance=ExtResource("24_vwfin")]
+position = Vector2(4416, -16)
+
+[node name="Makdi" parent="eggturrent2" unique_id=709690936 instance=ExtResource("26_va6c3")]
+position = Vector2(3608, -56)
+chase_speed = 190
+patrol_range = 50
+
+[node name="Makdi2" parent="eggturrent2" unique_id=110310331 instance=ExtResource("26_va6c3")]
+position = Vector2(4072, -72)
+chase_speed = 190
+patrol_range = 50
