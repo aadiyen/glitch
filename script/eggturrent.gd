@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var enemy_shoot = preload("res://scenes/enemy_bullet.tscn")
 @export var shoot_direction = Vector2(-1,0)
 
-
 const GRAVITY : int = 1000
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fire_timer: Timer = $FireTimer
@@ -12,7 +11,7 @@ const GRAVITY : int = 1000
 
 var player = null
 var can_shoot = true
-var health_amount : int = 1
+var health_amount : int = 5
 var damage_amount : = 1
 func _physics_process(delta):
 	if !is_on_floor():
@@ -47,8 +46,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		tween.tween_method(SetShader_BlinkIntensity, 1.0, 0.0, 0.5)
 		
 		var cam = get_viewport().get_camera_2d()
-		if cam:
-			cam.start_shake(0.12,7)
+		if cam:cam.start_shake(0.12,7)
 		
 	
 	var enemy_death_effect_instance = enemy_death_effect.instantiate()

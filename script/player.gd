@@ -167,6 +167,11 @@ func _on_hurtbox_area_entered(area: Area2D) -> void: # for dyna,mic type enemy d
 	if area.is_in_group("Enemy"):
 		hit_animation_player.play("hit")
 		HealthManager.decrease_health(1)
+	if area.is_in_group("health"):
+		HealthManager.increase_health(1)
+		HealthManager.increase_health(2)
+		HealthManager.increase_health(3)
+		
 	if HealthManager.current_health == 0:
 		player_death()
 		print("enemy attack")
