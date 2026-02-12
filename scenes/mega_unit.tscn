@@ -98,8 +98,8 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lygmn"]
 height = 64.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lygmn"]
-radius = 107.33126
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51l4d"]
+size = Vector2(368, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7egi"]
 radius = 16.0
@@ -128,7 +128,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=525240962]
-shape = SubResource("CircleShape2D_lygmn")
+shape = SubResource("RectangleShape2D_51l4d")
 debug_color = Color(0.9669792, 0, 0.48014754, 0.41960785)
 
 [node name="StateMachine" type="Node" parent="." unique_id=799634111]

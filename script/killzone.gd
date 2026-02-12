@@ -11,4 +11,6 @@ func _on_body_entered(body):
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+	#get_tree().reload_HealthManager()
+	
 	
