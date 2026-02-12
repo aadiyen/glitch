@@ -21,7 +21,7 @@ const GRAVITY : int = 1000
 @onready var state_machine: Node = $StateMachine
 
 var player : CharacterBody2D = null
-var health_amount : int = 5
+var health_amount : int = 7
 var is_dead : bool = false
 
 func _ready():

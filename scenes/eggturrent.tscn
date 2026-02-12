@@ -79,8 +79,8 @@ animations = [{
 radius = 16.0
 height = 48.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s8uaa"]
-radius = 121.85237
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0pop"]
+size = Vector2(322, 56)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8uaa"]
 radius = 16.0
@@ -108,12 +108,12 @@ collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=519049396]
-position = Vector2(-112, -24)
-shape = SubResource("CircleShape2D_s8uaa")
+position = Vector2(-167, -28)
+shape = SubResource("RectangleShape2D_d0pop")
 debug_color = Color(0.96634, 0, 0.48410767, 0.41960785)
 
 [node name="FireTimer" type="Timer" parent="." unique_id=2120622208]
-wait_time = 1.5
+wait_time = 1.4
 autostart = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=212793305]
