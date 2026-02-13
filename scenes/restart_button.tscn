@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c8i1jds2mj740"]
+
+[ext_resource type="Script" uid="uid://ct4mkg5vp2i36" path="res://script/canvas_layer.gd" id="1_yd7v5"]
+[ext_resource type="Texture2D" uid="uid://bmn6865q7stb7" path="res://assets/ui/main_manu_bg/cyberpunk-city-2-back-preview.png" id="2_sodyn"]
+[ext_resource type="Theme" uid="uid://cdmnllfru3ho8" path="res://assets/ui/fonnts/theme_layer.tres" id="3_3j4qt"]
+[ext_resource type="PackedScene" uid="uid://bcxyibo4lsnwx" path="res://scenes/gametitle.tscn" id="4_pnjko"]
+
+[node name="restart button1" type="CanvasLayer" unique_id=294211690]
+process_mode = 3
+layer = 2
+script = ExtResource("1_yd7v5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=24466255]
+modulate = Color(0.36862746, 0.6862745, 1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -112.0
+offset_right = 184.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sodyn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1889816304]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1636122398]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_3j4qt")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1676177251]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=213155029]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=207991903]
+layout_mode = 2
+text = "Restart"
+
+[node name="gametitle" parent="." unique_id=363308489 instance=ExtResource("4_pnjko")]
+offset_left = 88.0
+offset_top = -16.0
+offset_right = 88.0
+offset_bottom = -16.0
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_play_button_pressed"]

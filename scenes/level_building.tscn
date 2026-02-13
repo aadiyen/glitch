@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://ck768fgpfaoqp" path="res://scenes/texts_2.tscn" id="19_wa2lt"]
 [ext_resource type="PackedScene" uid="uid://dufxcbkjratd1" path="res://scenes/texts_3.tscn" id="20_dhgx3"]
 [ext_resource type="PackedScene" uid="uid://egme2furqkkn" path="res://scenes/texts_4.tscn" id="21_iacnr"]
+[ext_resource type="PackedScene" uid="uid://t1firpc6qdhb" path="res://scenes/orbs.tscn" id="21_posn0"]
+[ext_resource type="PackedScene" uid="uid://ban4syprrgw8" path="res://scenes/door.tscn" id="22_posn0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21n4v"]
 texture = ExtResource("1_xnywi")
@@ -336,6 +338,11 @@ layer_1/name = "Layer1"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(-65173, 131073, 3, 363, 131073, 4, 65899, 131073, 5, 131435, 131073, 6, 196971, 131073, 3, 262507, 131073, 4, 196969, 1, 5, 262505, 1, 6, 196970, 65537, 5, 262506, 65537, 6, 196972, 196609, 5, 262508, 196609, 6, 196973, 262145, 5, 262509, 262145, 6, -65170, 327681, 3, 366, 327681, 4, 65902, 327681, 5, 131438, 327681, 6, 196974, 327681, 5, 262510, 327681, 6, 262491, 393217, 6, 196955, 393217, 6, 131419, 393217, 6, 65883, 393217, 6, 347, 393217, 6, -65189, 393217, 6, 131439, 458753, 5, 196975, 458753, 6, 131440, 524289, 5, 196976, 458753, 5, 196977, 524289, 5, 262512, 458753, 6, 262513, 524289, 6, 262514, 589825, 6, 131437, 262145, 4)
 
+[node name="door" parent="TileMap" unique_id=1423787349 instance=ExtResource("22_posn0")]
+z_index = 2
+position = Vector2(6272.0005, 56.000004)
+next_scene = "Level2"
+
 [node name="droidenemies" type="Node" parent="." unique_id=1202336093]
 
 [node name="droid2" parent="droidenemies" unique_id=1167626962 node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_f3l0w")]
@@ -373,7 +380,7 @@ position = Vector2(12, 12)
 [node name="Player" type="Node" parent="." unique_id=440712632]
 
 [node name="player" parent="Player" unique_id=533396521 instance=ExtResource("5_6h5qi")]
-position = Vector2(144, 32)
+position = Vector2(96, 64)
 
 [node name="Camera2D2" type="Camera2D" parent="Player/player" unique_id=632838606]
 position = Vector2(0, 24)
@@ -388,7 +395,7 @@ editor_draw_limits = true
 script = ExtResource("5_lv23o")
 
 [node name="portal" parent="Player" unique_id=401549315 instance=ExtResource("6_dhgx3")]
-position = Vector2(6240, 32)
+position = Vector2(6360, 24)
 scale = Vector2(2, 2)
 
 [node name="GameBg" type="Node" parent="." unique_id=1818069790]
@@ -469,6 +476,7 @@ position = Vector2(1544, 264)
 shape = SubResource("WorldBoundaryShape2D_8y22b")
 
 [node name="GameScreen2" parent="." unique_id=1413663022 instance=ExtResource("4_35s2e")]
+offset = Vector2(0, 0)
 scale = Vector2(0.1, 0.1)
 transform = Transform2D(0.1, 0, 0, 0.1, 0, 0)
 
@@ -558,6 +566,7 @@ offset_right = 1085.0
 offset_bottom = 79.0
 
 [node name="texts3" parent="instructions" unique_id=223178627 instance=ExtResource("20_dhgx3")]
+z_index = -1
 offset_left = 1456.0
 offset_top = 40.0
 offset_right = 1677.0
@@ -571,11 +580,71 @@ offset_bottom = 108.0
 
 [node name="gameendarea" type="Area2D" parent="." unique_id=903873103]
 z_index = 1
-position = Vector2(6216, 32)
+position = Vector2(6416, 40)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gameendarea" unique_id=1185019581]
 position = Vector2(24, 8)
 shape = SubResource("CircleShape2D_wa2lt")
+
+[node name="orbs" parent="." unique_id=1527240508 instance=ExtResource("21_posn0")]
+position = Vector2(224, 96)
+
+[node name="orbs2" parent="." unique_id=69814008 instance=ExtResource("21_posn0")]
+position = Vector2(320, 96)
+
+[node name="orbs3" parent="." unique_id=1290468244 instance=ExtResource("21_posn0")]
+position = Vector2(424, 96)
+
+[node name="orbs4" parent="." unique_id=1475346149 instance=ExtResource("21_posn0")]
+position = Vector2(528, 96)
+
+[node name="orbs5" parent="." unique_id=1137644284 instance=ExtResource("21_posn0")]
+position = Vector2(1008, 56)
+
+[node name="orbs6" parent="." unique_id=48839358 instance=ExtResource("21_posn0")]
+position = Vector2(1224, 96)
+
+[node name="orbs7" parent="." unique_id=1611568120 instance=ExtResource("21_posn0")]
+position = Vector2(1304, 96)
+
+[node name="orbs8" parent="." unique_id=1717183242 instance=ExtResource("21_posn0")]
+position = Vector2(1776, 24)
+
+[node name="orbs9" parent="." unique_id=1552250921 instance=ExtResource("21_posn0")]
+position = Vector2(2000, 24)
+
+[node name="orbs10" parent="." unique_id=827071692 instance=ExtResource("21_posn0")]
+position = Vector2(2216, 24)
+
+[node name="orbs11" parent="." unique_id=1314989537 instance=ExtResource("21_posn0")]
+position = Vector2(2464, 24)
+
+[node name="orbs12" parent="." unique_id=411912774 instance=ExtResource("21_posn0")]
+position = Vector2(2792, 88)
+
+[node name="orbs13" parent="." unique_id=936460094 instance=ExtResource("21_posn0")]
+position = Vector2(2664, 24)
+
+[node name="orbs14" parent="." unique_id=457520642 instance=ExtResource("21_posn0")]
+position = Vector2(3136, 136)
+
+[node name="orbs15" parent="." unique_id=597896294 instance=ExtResource("21_posn0")]
+position = Vector2(3272, 136)
+
+[node name="orbs16" parent="." unique_id=2030666793 instance=ExtResource("21_posn0")]
+position = Vector2(3392, 136)
+
+[node name="orbs17" parent="." unique_id=119847961 instance=ExtResource("21_posn0")]
+position = Vector2(5000, -48)
+
+[node name="orbs18" parent="." unique_id=494526814 instance=ExtResource("21_posn0")]
+position = Vector2(5312, -200)
+
+[node name="orbs19" parent="." unique_id=705436750 instance=ExtResource("21_posn0")]
+position = Vector2(5408, -176)
+
+[node name="orbs2" parent="orbs19" unique_id=690841515 instance=ExtResource("21_posn0")]
+position = Vector2(72, 64)
 
 [connection signal="body_entered" from="gameendarea" to="." method="_on_gameendarea_body_entered"]

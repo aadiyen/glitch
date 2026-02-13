@@ -158,6 +158,7 @@ func _on_hurtbox_body_entered(body: Node2D):
 		HealthManager.decrease_health(1)
 	if HealthManager.current_health == 0:
 		player_death()
+	
 		
 		
 
