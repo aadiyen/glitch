@@ -26,6 +26,7 @@ Global="*res://script/global.gd"
 HealthManager="*res://script/health_manager.gd"
 GameManager="*res://script/game_manager.gd"
 Collectablemagager="*uid://cv4aaggejc1dv"
+Scenemanager="*uid://bqq2lgyt6lq03"
 
 [display]
 
@@ -83,6 +84,7 @@ shoot={
 2d_physics/layer_2="PLAYER"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_5="Collectibles"
+2d_physics/layer_6="Door"
 
 [rendering]
 

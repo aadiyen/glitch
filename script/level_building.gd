@@ -1,5 +1,5 @@
 extends Node2D
-var game_end_scene = preload("res://scenes/gameendscene.tscn")
+var game_end_scene = preload("res://scenes/level_2.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
