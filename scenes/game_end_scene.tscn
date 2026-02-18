@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://52nd2pjc5s51"]
+
+[ext_resource type="Texture2D" uid="uid://bmn6865q7stb7" path="res://assets/ui/main_manu_bg/cyberpunk-city-2-back-preview.png" id="1_nqho5"]
+[ext_resource type="FontFile" uid="uid://c0fkr6hgj32j" path="res://assets/ui/game_title_font/RubikGlitch-Regular.ttf" id="2_78q73"]
+
+[node name="game end scene" type="CanvasLayer" unique_id=1570521195]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=950994860]
+modulate = Color(0.36862746, 0.6862745, 1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -112.0
+offset_right = 184.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nqho5")
+
+[node name="Label" type="Label" parent="." unique_id=223040443]
+modulate = Color(0.9791985, 0.000794735, 0.97994834, 1)
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 504.0
+offset_bottom = 142.0
+theme_override_colors/font_outline_color = Color(0.46618086, 0.4661808, 0.4661808, 1)
+theme_override_fonts/font = ExtResource("2_78q73")
+theme_override_font_sizes/font_size = 36
+text = "Haha You made it to end!!"

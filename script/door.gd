@@ -7,6 +7,7 @@ func _on_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		var player = body as CharacterBody2D
 		player.queue_free()
+		Collectablemagager.reset_award_amount()
 		
 		await get_tree().create_timer(3.0).timeout
 		print("scene transition")

@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://quvbxwja4yxc" path="res://assets/orb/asas.png" id="4_dv2sx"]
 
 [node name="GameScreen" type="CanvasLayer" unique_id=811902787]
-offset = Vector2(46, 0)
-transform = Transform2D(1, 0, 0, 1, 46, 0)
+offset = Vector2(48, 0)
+transform = Transform2D(1, 0, 0, 1, 48, 0)
 script = ExtResource("1_7id47")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2119553654]
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 18.0
 offset_top = 16.0
-offset_right = 4398.0
+offset_right = 4304.0
 offset_bottom = 1178.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -76,4 +76,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
+[node name="TextureButton" type="TextureButton" parent="." unique_id=295273687]
+offset_left = 4672.0
+offset_top = 24.0
+offset_right = 4772.0
+offset_bottom = 124.0
+texture_normal = ExtResource("3_7id47")
+
 [connection signal="pressed" from="MarginContainer/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

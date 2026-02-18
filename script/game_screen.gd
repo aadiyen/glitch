@@ -11,3 +11,10 @@ func on_collectible_award_recieved(total_award : int):
 
 func _on_pause_texture_button_pressed() -> void:
 	GameManager.pause_game()
+	
+	
+
+
+
+func _on_texture_button_pressed() -> void:
+	GameManager.pause_game()
