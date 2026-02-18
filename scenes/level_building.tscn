@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c3wjyx0equp0g" path="res://assets/level1/V2/Environmet/background/front.png" id="4_rcbm5"]
 [ext_resource type="PackedScene" uid="uid://11lgsft8khdk" path="res://scenes/player.tscn" id="5_6h5qi"]
 [ext_resource type="Script" uid="uid://c08lx0ehcs5vh" path="res://script/camera_2d_2.gd" id="5_lv23o"]
-[ext_resource type="PackedScene" uid="uid://gn6uqieoeed1" path="res://scenes/portal.tscn" id="6_dhgx3"]
 [ext_resource type="PackedScene" uid="uid://jbesoryc0e71" path="res://scenes/droid.tscn" id="6_f3l0w"]
 [ext_resource type="PackedScene" uid="uid://cryty7dbkv1s5" path="res://scenes/screen.tscn" id="8_rcbm5"]
 [ext_resource type="PackedScene" uid="uid://cskf7sxnslidd" path="res://scenes/screen_2.tscn" id="10_21n4v"]
@@ -324,9 +323,6 @@ sources/1 = SubResource("TileSetAtlasSource_21n4v")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8y22b"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wa2lt"]
-radius = 28.84441
-
 [node name="LevelBuilding" type="Node2D" unique_id=1851599991]
 script = ExtResource("1_o8yoy")
 
@@ -381,22 +377,6 @@ position = Vector2(12, 12)
 
 [node name="player" parent="Player" unique_id=533396521 instance=ExtResource("5_6h5qi")]
 position = Vector2(96, 64)
-
-[node name="Camera2D2" type="Camera2D" parent="Player/player" unique_id=632838606]
-position = Vector2(0, 24)
-zoom = Vector2(0.9, 0.9)
-limit_left = 20
-limit_top = -210
-limit_right = 6304
-limit_bottom = 223
-limit_smoothed = true
-position_smoothing_enabled = true
-editor_draw_limits = true
-script = ExtResource("5_lv23o")
-
-[node name="portal" parent="Player" unique_id=401549315 instance=ExtResource("6_dhgx3")]
-position = Vector2(6360, 24)
-scale = Vector2(2, 2)
 
 [node name="GameBg" type="Node" parent="." unique_id=1818069790]
 
@@ -583,10 +563,6 @@ z_index = 1
 position = Vector2(6416, 40)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="gameendarea" unique_id=1185019581]
-position = Vector2(24, 8)
-shape = SubResource("CircleShape2D_wa2lt")
-
 [node name="orbs" parent="." unique_id=1527240508 instance=ExtResource("21_posn0")]
 position = Vector2(224, 96)
 
@@ -646,5 +622,18 @@ position = Vector2(5408, -176)
 
 [node name="orbs2" parent="orbs19" unique_id=690841515 instance=ExtResource("21_posn0")]
 position = Vector2(72, 64)
+
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=632838606 node_paths=PackedStringArray("player")]
+position = Vector2(96, 88)
+zoom = Vector2(0.9, 0.9)
+limit_left = 20
+limit_top = -210
+limit_right = 6292
+limit_bottom = 223
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("5_lv23o")
+player = NodePath("../Player/player")
 
 [connection signal="body_entered" from="gameendarea" to="." method="_on_gameendarea_body_entered"]

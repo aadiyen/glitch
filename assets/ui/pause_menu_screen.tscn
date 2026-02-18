@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjwpjvvsiau6n"]
+[gd_scene format=3 uid="uid://cjwpjvvsiau6n"]
 
 [ext_resource type="Script" uid="uid://n2affroq41nr" path="res://script/pause_menu_screen.gd" id="1_fepc0"]
 [ext_resource type="Texture2D" uid="uid://bmn6865q7stb7" path="res://assets/ui/main_manu_bg/cyberpunk-city-2-back-preview.png" id="2_fnbi1"]
 [ext_resource type="Theme" uid="uid://cdmnllfru3ho8" path="res://assets/ui/fonnts/theme_layer.tres" id="3_2y2dl"]
 
-[node name="PauseMenuScreen" type="CanvasLayer"]
+[node name="PauseMenuScreen" type="CanvasLayer" unique_id=625383846]
 process_mode = 3
 layer = 2
 script = ExtResource("1_fepc0")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=982798457]
 modulate = Color(0.37, 0.685, 1, 1)
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,34 +22,34 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_fnbi1")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1830093427]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=2035381255]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_2y2dl")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1162346254]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=217040488]
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1690903779]
 layout_mode = 2
 text = "Continue"
 
-[node name="MainMenuButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=816194242]
 layout_mode = 2
 text = "Main Menu"
 

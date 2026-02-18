@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqcf5utqj178i"]
+[gd_scene format=3 uid="uid://cqcf5utqj178i"]
 
 [ext_resource type="Texture2D" uid="uid://dfvw4elrscefp" path="res://assets/player_hit_death/spritesheet.png" id="1_0nt2d"]
 [ext_resource type="Script" uid="uid://cpdf50gpiwonh" path="res://script/player_death_effect.gd" id="1_uy3ls"]
@@ -83,10 +83,11 @@ angular_velocity_max = 29.999983
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_uy3ls")
 
-[node name="PlayerDeathEffect" type="Node2D"]
+[node name="PlayerDeathEffect" type="Node2D" unique_id=1538837441]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_uy3ls")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1182614058]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_ksr0o")
 animation = &"death_effect"
@@ -94,14 +95,14 @@ autoplay = "death_effect"
 frame = 6
 frame_progress = 1.0
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=74277737]
 position = Vector2(0, -22)
 amount = 25
 speed_scale = 6.0
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_c6tgx")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=263704271]
 one_shot = true
 autostart = true
 

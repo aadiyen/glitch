@@ -2,9 +2,12 @@ extends CharacterBody2D
 const  GRAVITY = 1000
 var bullet = preload("res://scenes/bullet.tscn") # export the bullet
 var player_death_effect = preload("res://scenes/player_death_effect.tscn")
+var restart_button = preload("res://scenes/restart_button.tscn")
 @onready var muzzle: Marker2D = $Muzzle
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit_animation_player: AnimationPlayer = $HitAnimationPlayer
+
+
 
 @export var speed : int = 300
 @export var jump : int = -300
@@ -24,6 +27,7 @@ var current_jump_count
 func _ready() :
 	current_state = State.Idle
 	muzzle_position = muzzle.position
+	
 	
 
 
@@ -51,7 +55,7 @@ func player_shooting(delta: float):
 	var direction = input_movement()
 	if is_on_floor() and Input.is_action_just_pressed("shoot"):
 		$AudioStreamPlayer2D.pitch_scale = randf_range(0.95,1.1) # bullet sound pitch
-		$AudioStreamPlayer2D.volume_db = randf_range(-15,-16)   # bullet sound decible
+		$AudioStreamPlayer2D.volume_db = randf_range(-10,4)   # bullet sound decible
 		$AudioStreamPlayer2D.play()
 		var bullet_instance = bullet.instantiate() as Node2D
 		bullet_instance.direction = direction
@@ -131,8 +135,18 @@ func player_death():
 	player_death_effect_instance.global_position = global_position
 	get_parent().add_child(player_death_effect_instance)
 	#$"../../AudioStreamPlayer".stop()
+	
 	queue_free()
 	
+	
+	
+	
+	
+# restart after player death
+	var restart_button_instance = restart_button.instantiate()
+	get_parent().add_child(restart_button_instance)
+	
+
 	
 	
 	

@@ -17,7 +17,7 @@ func pause_game():
 	get_tree().paused = true
 	var pause_menu_screen_instance = pause_menu_screen.instantiate()
 	get_tree().get_root().add_child(pause_menu_screen_instance)
-
+	
 func continue_game():
 	get_tree().paused = false
 

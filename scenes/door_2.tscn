@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cuej61dm2v2wb"]
+
+[ext_resource type="Script" uid="uid://hme8x68tig11" path="res://script/door_2.gd" id="1_fabj8"]
+[ext_resource type="Texture2D" uid="uid://cb7yp1y7co5w3" path="res://gate/gate-03.png" id="2_12tgo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m17xr"]
+size = Vector2(13, 48)
+
+[node name="door2" type="Node2D" unique_id=383518874]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_fabj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=429187368]
+modulate = Color(0.726192, 0.0004218179, 0.7308518, 1)
+texture = ExtResource("2_12tgo")
+
+[node name="ExitArea2D" type="Area2D" parent="Sprite2D" unique_id=1113666055]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ExitArea2D" unique_id=1939193589]
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_m17xr")
+debug_color = Color(0.84153265, 0.364225, 0.31836495, 0.41960785)
+
+[connection signal="body_entered" from="Sprite2D/ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]

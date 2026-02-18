@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var enemy_death_effect = preload("res://scenes/enemy_explosion_2.tscn")
+@export var enemy_death_effect = preload("res://scenes/enemy_death_effect.tscn")
 
 const GRAVITY : int = 1000
 

@@ -25,7 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://bxp88p4phxgyh" path="res://assets/musics/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="23_vhnap"]
 [ext_resource type="PackedScene" uid="uid://neiq7g81f0o1" path="res://scenes/eggturrent.tscn" id="24_vwfin"]
 [ext_resource type="PackedScene" uid="uid://t1firpc6qdhb" path="res://scenes/orbs.tscn" id="25_63d2t"]
-[ext_resource type="PackedScene" uid="uid://b5ykiys70tkuu" path="res://new_state_machine/makdi.tscn" id="26_va6c3"]
+[ext_resource type="PackedScene" uid="uid://cuej61dm2v2wb" path="res://scenes/door_2.tscn" id="28_73m23"]
 [ext_resource type="PackedScene" uid="uid://c2e07ito5g5k1" path="res://scenes/healthpotion.tscn" id="28_bgibu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hey2k"]
@@ -599,22 +599,11 @@ ambient_light_source = 2
 
 [node name="player" parent="Player" unique_id=1236376340 instance=ExtResource("2_b4j7a")]
 z_index = 2
-position = Vector2(160, -88)
+position = Vector2(184, -96)
 
-[node name="Camera2D2" type="Camera2D" parent="Player/player" unique_id=494175981]
-position = Vector2(16, 24)
-zoom = Vector2(0.7, 0.7)
-limit_left = 130
-limit_top = -510
-limit_right = 7617
-limit_bottom = 111
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 1.0
-rotation_smoothing_enabled = true
-rotation_smoothing_speed = 3.0
-editor_draw_limits = true
-script = ExtResource("3_wo48x")
+[node name="door2" parent="Player" unique_id=383518874 instance=ExtResource("28_73m23")]
+z_index = 3
+position = Vector2(7600.0005, -64)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1701074512]
 
@@ -925,9 +914,6 @@ patrol_range = 150
 [node name="mega_unit6" parent="megaunit" unique_id=1379818435 instance=ExtResource("12_172wr")]
 position = Vector2(6544, -72)
 
-[node name="mega_unit7" parent="megaunit" unique_id=1886035491 instance=ExtResource("12_172wr")]
-position = Vector2(7040, -72)
-
 [node name="mega_unit8" parent="megaunit" unique_id=412523144 instance=ExtResource("12_172wr")]
 position = Vector2(7440, -64)
 
@@ -1048,16 +1034,6 @@ position = Vector2(4264, -24)
 
 [node name="eggturrent2" type="Node" parent="." unique_id=548039661]
 
-[node name="Makdi" parent="eggturrent2" unique_id=709690936 instance=ExtResource("26_va6c3")]
-position = Vector2(3280, 184)
-chase_speed = 190
-patrol_range = 50
-
-[node name="Makdi2" parent="eggturrent2" unique_id=110310331 instance=ExtResource("26_va6c3")]
-position = Vector2(3592, 232)
-chase_speed = 190
-patrol_range = 50
-
 [node name="eggturrent" parent="eggturrent2" unique_id=1226334712 instance=ExtResource("24_vwfin")]
 position = Vector2(4368, -8)
 
@@ -1084,3 +1060,19 @@ position = Vector2(5664, -240)
 
 [node name="RigidBody2D3" parent="." unique_id=1276469464 instance=ExtResource("28_bgibu")]
 position = Vector2(5672, -80)
+
+[node name="playerCamera2D2" type="Camera2D" parent="." unique_id=494175981 node_paths=PackedStringArray("player")]
+position = Vector2(272, -72)
+zoom = Vector2(0.7, 0.7)
+limit_left = 130
+limit_top = -510
+limit_right = 7617
+limit_bottom = 111
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 3.0
+editor_draw_limits = true
+script = ExtResource("3_wo48x")
+player = NodePath("../Player/player")
