@@ -1,67 +1,64 @@
-[gd_scene load_steps=10 format=3 uid="uid://inxtlyrt8wdn"]
+[gd_scene format=3 uid="uid://inxtlyrt8wdn"]
 
-[ext_resource type="Texture2D" uid="uid://6lxmarbhwswq" path="res://assets/bullet/bulletempact/All_Fire_Bullet_Pixel_16x16_00.png" id="1_lvgup"]
+[ext_resource type="Texture2D" uid="uid://1itur2cxtrmo" path="res://assets/bullet shot/impact/impact-1.png" id="1_i8m1d"]
 [ext_resource type="Script" uid="uid://ccmrlaqt53a2j" path="res://script/bulletempact_effect.gd" id="2_lbw5e"]
+[ext_resource type="Texture2D" uid="uid://dnr2uhwvuh7a4" path="res://assets/bullet shot/impact/impact-2.png" id="2_qbr16"]
+[ext_resource type="Texture2D" uid="uid://bdhseovien6q8" path="res://assets/bullet shot/impact/impact-3.png" id="3_rp142"]
+[ext_resource type="Texture2D" uid="uid://di3n8tco5cqxo" path="res://assets/bullet shot/impact/impact-4.png" id="4_gva4x"]
+[ext_resource type="Texture2D" uid="uid://bork0fx3svo14" path="res://assets/bullet shot/impact/impact-5.png" id="5_o2pv4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pc4qr"]
-atlas = ExtResource("1_lvgup")
-region = Rect2(0, 17, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_afhhf"]
+atlas = ExtResource("1_i8m1d")
+region = Rect2(0, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gtlb5"]
-atlas = ExtResource("1_lvgup")
-region = Rect2(16, 17, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf8yq"]
+atlas = ExtResource("2_qbr16")
+region = Rect2(0, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i8m1d"]
-atlas = ExtResource("1_lvgup")
-region = Rect2(32, 17, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr2h0"]
+atlas = ExtResource("3_rp142")
+region = Rect2(0, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbr16"]
-atlas = ExtResource("1_lvgup")
-region = Rect2(48, 17, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dirco"]
+atlas = ExtResource("4_gva4x")
+region = Rect2(0, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rp142"]
-atlas = ExtResource("1_lvgup")
-region = Rect2(64, 17, 16, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gva4x"]
-atlas = ExtResource("1_lvgup")
-region = Rect2(608, 238, 16, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7a03"]
+atlas = ExtResource("5_o2pv4")
+region = Rect2(0, 0, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o2pv4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pc4qr")
+"texture": SubResource("AtlasTexture_afhhf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gtlb5")
+"texture": SubResource("AtlasTexture_xf8yq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i8m1d")
+"texture": SubResource("AtlasTexture_rr2h0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qbr16")
+"texture": SubResource("AtlasTexture_dirco")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rp142")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gva4x")
+"texture": SubResource("AtlasTexture_a7a03")
 }],
 "loop": false,
 "name": &"impact",
-"speed": 12.0
+"speed": 18.0
 }]
 
-[node name="BulletempactEffect" type="AnimatedSprite2D"]
+[node name="BulletempactEffect" type="AnimatedSprite2D" unique_id=968240307]
 sprite_frames = SubResource("SpriteFrames_o2pv4")
 animation = &"impact"
 autoplay = "impact"
-frame = 5
+frame = 4
 frame_progress = 1.0
 script = ExtResource("2_lbw5e")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1117628151]
 wait_time = 0.4
 one_shot = true
 autostart = true

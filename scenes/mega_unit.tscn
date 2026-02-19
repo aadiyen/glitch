@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dm0kafgys5j1o" path="res://new_state_machine/chase2.gd" id="5_b7egi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tqbvj"]
+resource_local_to_scene = true
 shader = ExtResource("2_51l4d")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
