@@ -1,7 +1,8 @@
 This is my third game project which was very great!! i love the process of making this game throughout the project.
 #Initial Plan for the game
 since I have made two hypercasual games before this time i wanted to make something more complex and different than previous games, so i have started making the prototype of the game first and took some time to make different kinds of prototype for the game. The plan was to make a cyberunk style 2D pixelasrt game.
-#How it went?
+
+# How it went
 so after i was done with the game prototype i decided to start building the game and build game mechanics but something went wrong, i saw that my game codes i was using earlier are kind of messy and becoming unreadable so i decided to took some more time and write the game codes again from the scratch, initially it was hard but after that the game progress was increased.
 
 # What I learned frome this game project?
