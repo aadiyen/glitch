@@ -42,6 +42,12 @@ func _physics_process(delta:float):
 		move_and_slide()
 		player_animation()
 		
+		
+	
+	
+
+		
+		
 	
 func player_falling(delta: float):
 	if !is_on_floor():
