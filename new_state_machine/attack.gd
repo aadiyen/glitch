@@ -25,14 +25,13 @@ func perform_attack():
 	# Actual Damage Logic
 	if owner.state_machine.current_state == self:
 		print("Player hit for: ", owner.damage_amount)
-		# Agar player ki health script hai: owner.player.take_damage(owner.damage_amount)
+		
 
 	# Animation finish delay
 	await get_tree().create_timer(0.4).timeout
 	is_attacking = false
 	
-	# Attack khatam hone ke baad check karo ki kya player abhi bhi range mein hai
-	# (Note: Agar signal ne state change nahi kiya, to hum loop karenge)
+	# Attack khatam hone ke baad check karega ki kya player abhi bhi range mein hai
 	if owner.state_machine.current_state == self:
 		perform_attack()
 

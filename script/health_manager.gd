@@ -22,7 +22,7 @@ func increase_health(health_amount:int):
 	print("increase healh")
 	on_health_changed.emit(current_health)
 
-func reset_health(): # reset health afted dying hopefully
+func reset_health(): # reset health after player death
 	current_health = max_health
 
 

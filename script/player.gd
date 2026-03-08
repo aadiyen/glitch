@@ -18,9 +18,9 @@ var restart_button = preload("res://scenes/restart_button.tscn")
 @export var jump_count : int = 1
 enum State {Idle , Run , Jump, shoot}  # describe the state of the player lodu
 
-var facing_direction: int = 1 # bug fixing for bullet not launching while being idle lodu
+var facing_direction: int = 1 # bug fixing for bullet not lanching
 var character_sprite : Sprite2D
-var current_state : State    # yes my code breaks sometimes now what to do?? madarchod!!
+var current_state : State    
 var muzzle_position 
 var current_jump_count
 
@@ -184,7 +184,7 @@ func _on_hurtbox_body_entered(body: Node2D):
 
 
 
-func _on_hurtbox_area_entered(area: Area2D) -> void: # for dyna,mic type enemy damage
+func _on_hurtbox_area_entered(area: Area2D) -> void: # for dynamic type enemy damage
 	if area.is_in_group("Enemy"):
 		hit_animation_player.play("hit")
 		HealthManager.decrease_health(1)

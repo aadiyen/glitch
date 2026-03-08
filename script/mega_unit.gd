@@ -82,10 +82,10 @@ func SetShader_BlinkIntensity(new_Value: float):
 func die():
 	if is_dead: return
 	
-	is_dead = true # Set this immediately
+	is_dead = true # confirm the enemy death to stop fsm
 	velocity = Vector2.ZERO
 	
-	# Stop the State Machine logic completely behencho it was tuff!!
+	# Stop the State Machine logic 
 	if state_machine:
 		state_machine.set_physics_process(false)
 		state_machine.set_process(false)
