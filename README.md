@@ -151,4 +151,4 @@ It remains one of the projects that contributed most to my growth as a game deve
 
 ## Play the Game
 
-(Add itch.io link here)
+https://adiyen.itch.io/glitch
