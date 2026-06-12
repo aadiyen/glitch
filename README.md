@@ -2,7 +2,7 @@
 
 <img width="550" height="297" alt="game dev portfolio" src="https://github.com/user-attachments/assets/bd8fd9d9-c465-427d-b3e7-ffdb01def31e" />
 
-
+2D action-platformer with FSM-based enemy AI, patrol behavior, and level design focus.
 
 ## Overview
 
