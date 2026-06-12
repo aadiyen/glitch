@@ -1,6 +1,6 @@
 # Cyberpunk 2D Pixel Game
 
-<img width="350" height="197" alt="game dev portfolio" src="https://github.com/user-attachments/assets/bd8fd9d9-c465-427d-b3e7-ffdb01def31e" />
+<img width="650" height="397" alt="game dev portfolio" src="https://github.com/user-attachments/assets/bd8fd9d9-c465-427d-b3e7-ffdb01def31e" />
 
 
 
