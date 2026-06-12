@@ -33,6 +33,10 @@ Unlike my previous hyper-casual projects, this game required more advanced progr
 
 ## Enemy AI Systems
 
+![Uploading game dev portfolio.gif…]()
+
+
+
 ### Chasing Enemy (Experimental)
 
 Initially, I implemented an enemy that could chase the player using a global script.
