@@ -1,3 +1,4 @@
+<img width="1754" height="725" alt="Screenshot 2026-01-27 132308" src="https://github.com/user-attachments/assets/193f3247-d8d6-43ca-a0e0-12413bcc2add" />
 # Cyberpunk 2D Pixel Game
 
 ## Overview
