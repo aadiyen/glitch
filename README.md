@@ -33,7 +33,7 @@ Unlike my previous hyper-casual projects, this game required more advanced progr
 
 ## Enemy AI Systems
 
-![Uploading game dev portfolio.gif…]()
+<img width="350" height="197" alt="game dev portfolio" src="https://github.com/user-attachments/assets/028a6e1e-3270-44bf-8828-4538235625cf" />
 
 
 
