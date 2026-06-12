@@ -75,6 +75,9 @@ During development, I encountered several scene-tree-related issues and spent ap
 
 ## Level Design
 
+<img width="400" height="225" alt="Untitled video - Made with Clipchamp 2)" src="https://github.com/user-attachments/assets/ad07a210-c1f0-4bf5-a25a-7f72e25fa144" />
+
+
 This project was my first serious attempt at level design.
 
 To improve gameplay flow, I repeatedly tested levels, adjusted enemy placement, and experimented with different layouts.
