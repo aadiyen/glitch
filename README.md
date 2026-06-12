@@ -145,11 +145,6 @@ It remains one of the projects that contributed most to my growth as a game deve
 
 ---
 
-## Screenshots
-
-(Add screenshots here)
-
----
 
 ## Play the Game
 
