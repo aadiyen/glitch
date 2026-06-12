@@ -1,6 +1,7 @@
 # Cyberpunk 2D Pixel Game
 
-<img width="1754" height="725" alt="Screenshot 2026-01-27 132308" src="https://github.com/user-attachments/assets/193f3247-d8d6-43ca-a0e0-12413bcc2add" />
+<img width="350" height="197" alt="game dev portfolio" src="https://github.com/user-attachments/assets/028a6e1e-3270-44bf-8828-4538235625cf" />
+
 
 ## Overview
 
@@ -32,9 +33,6 @@ Unlike my previous hyper-casual projects, this game required more advanced progr
 ---
 
 ## Enemy AI Systems
-
-<img width="350" height="197" alt="game dev portfolio" src="https://github.com/user-attachments/assets/028a6e1e-3270-44bf-8828-4538235625cf" />
-
 
 
 ### Chasing Enemy (Experimental)
