@@ -35,7 +35,7 @@ Unlike my previous hyper-casual projects, this game required more advanced progr
 
 ## Enemy AI Systems
 
-<img width="400" height="189" alt="Screen Recording 2026-01-15 235838" src="https://github.com/user-attachments/assets/ea110eae-15ca-41ee-8d6c-ddda564f9b5b" />
+<img width="450" height="239" alt="Screen Recording 2026-01-15 235838" src="https://github.com/user-attachments/assets/ea110eae-15ca-41ee-8d6c-ddda564f9b5b" />
 
 
 
