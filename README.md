@@ -1,86 +1,154 @@
-# Cyberpunk 2D Pixel Game – Third Project
-# Overview
+# Cyberpunk 2D Pixel Game
 
-This is my third game project, a fast-paced cyberpunk-style 2D pixel game developed using the Godot Engine.
+## Overview
 
-Unlike my previous hyper-casual games, this project is more complex and includes level design, enemy AI, and a more polished gameplay loop. I enjoyed the entire process of creating this game, starting from the initial prototype to the final playable version.
+Cyberpunk 2D Pixel Game is a fast-paced platformer developed using the Godot Engine. This was my third game project and my first attempt at building a more complex game featuring enemy AI, level design, and structured gameplay systems.
 
-# Development Process
+Unlike my previous hyper-casual projects, this game required more advanced programming and design decisions. Throughout development, I focused on creating maintainable code, implementing AI systems, and designing engaging levels.
 
-After completing the game prototype, I began implementing the main gameplay mechanics. However, I quickly realized that the code I had written earlier was becoming messy and difficult to read.
+---
 
-Instead of continuing with poorly structured code, I decided to rewrite the gameplay systems from scratch. Although this slowed development at first, it made the code cleaner, easier to manage, and easier to expand later in development.
+## Technologies Used
 
-# What I Learned From This Project
-1. Enemy Types
+* Godot Engine
+* GDScript
+* Finite State Machine (FSM) Architecture
+* TileMap-Based Level Design
 
-# Chasing Enemy (Experimental)
-Initially, I implemented an enemy that chased the player using a global script. However, because the game is level-based, enemies that chased the player across the entire level made the gameplay unfair. Because of this, I decided not to include this enemy type in the final version.
+---
 
-# Patrolling Enemy
-I implemented patrol enemies that move within a specific area and do not leave their assigned zone. This is a common enemy behavior used in many platformer games.
+## Key Features
 
-2. Finite State Machine (FSM)
+* Cyberpunk-themed pixel art environment
+* Multiple enemy behaviors
+* Finite State Machine (FSM) AI system
+* Player detection and enemy response system
+* Level-based gameplay
+* Enemy patrol mechanics
+* Debugged and optimized gameplay systems
 
-The most complex system I implemented was a Finite State Machine (FSM) for enemy behavior.
+---
 
-This system allows enemies to:
+## Enemy AI Systems
 
-Stay idle
+### Chasing Enemy (Experimental)
 
-Patrol their area
+Initially, I implemented an enemy that could chase the player using a global script.
 
-Detect the player when nearby
+During testing, I realized that because the game is level-based, allowing enemies to chase the player across large sections of the level made gameplay feel unfair and frustrating.
 
-Return to normal behavior when the player leaves
+As a result, I decided not to include this enemy type in the final version.
 
-I first studied FSM concepts through YouTube tutorials and game development forums. After understanding the concept, I decided to implement my own FSM system.
+### Patrolling Enemy
 
-Initially, I faced issues related to the scene tree structure, but after debugging and experimenting for about one week, I successfully implemented the system.
+The final game uses patrol enemies that move within predefined areas and remain inside their assigned zones.
 
-3. Level Design
+This behavior creates more predictable gameplay and allows for better level design and player planning.
 
-Level design was completely new for me in this project. I experimented by placing enemies repeatedly and testing the gameplay to understand enemy placement and level flow.
+---
 
-This iterative process helped me understand how level design affects gameplay difficulty and pacing.
+## Finite State Machine (FSM)
 
-Problems I Faced and How I Solved Them
-State Machine Bug
+One of the most important systems I implemented was a Finite State Machine (FSM) for enemy behavior.
 
-While developing the FSM system, I encountered a bug where the state machine continued trying to access the enemy even after the enemy had died. This sometimes broke the game.
+The FSM allows enemies to:
 
-Solution:
-I implemented a function that stops the state machine when the enemy dies, preventing it from referencing a destroyed object.
+* Stay idle
+* Patrol their assigned area
+* Detect the player
+* Switch to an alert state
+* Return to normal behavior when the player leaves detection range
 
-Enemy Position Fluctuation
+I learned the fundamentals of FSM architecture through game development resources and then implemented my own version within Godot.
 
-Another bug occurred when the player jumped above an enemy. The enemy’s position began fluctuating because the player detection collision shape was circular, which confused the AI detection.
+During development, I encountered several scene-tree-related issues and spent approximately one week debugging and refining the system before achieving a stable implementation.
 
-Solution:
-I changed the detection shape to a rectangle, which improved the AI behavior and made it more stable.
+---
 
-Node Structure Problems
+## Level Design
 
-While implementing the FSM system, I realized how important proper node naming and scene structure is.
+This project was my first serious attempt at level design.
 
-Some enemy states were not triggering because the node names were incorrect, which caused the system to fail.
+To improve gameplay flow, I repeatedly tested levels, adjusted enemy placement, and experimented with different layouts.
 
-This issue helped me understand the importance of organized scene hierarchy and clear node naming.
+I also asked friends and family members to playtest the game and provide feedback. Their suggestions helped improve level pacing, difficulty balance, and enemy placement.
 
-Level Design Challenges
+Through this iterative process, I gained a better understanding of how level design influences player experience.
 
-In my previous projects, I struggled with level design. For this game, I decided to focus on building a proper level-based gameplay experience.
+---
 
-To improve the levels, I asked my brothers and friends to playtest the game and provide feedback. Their feedback helped me improve enemy placement and level flow.
+## Challenges and Solutions
 
-After several iterations, I was able to create a decent and enjoyable level design.
+### FSM Referencing Destroyed Enemies
 
+**Problem:**
+After an enemy died, the FSM occasionally continued trying to access that enemy, causing errors and unstable behavior.
 
-## Conclusion
+**Solution:**
+Implemented a function that disables the state machine when an enemy is destroyed, preventing invalid references.
 
-This project helped me understand several important aspects of game development such as enemy AI, finite state machines, level design, and debugging gameplay systems.
+---
 
-It was a challenging but rewarding experience, and it helped me improve my coding structure and problem-solving skills.
+### Enemy Position Fluctuation
 
-I plan to continue improving my game development skills and build more complex projects in the future.
+**Problem:**
+When the player jumped above an enemy, the enemy's position occasionally fluctuated because the circular detection area produced inconsistent detection behavior.
 
+**Solution:**
+Replaced the circular detection shape with a rectangular detection zone, resulting in more stable AI behavior.
+
+---
+
+### Scene Tree and Node Structure Issues
+
+**Problem:**
+Certain enemy states failed to activate because of incorrect node names and scene hierarchy configuration.
+
+**Solution:**
+Reorganized the scene structure and standardized node naming conventions, which improved reliability and debugging efficiency.
+
+---
+
+### Level Design Challenges
+
+**Problem:**
+Creating engaging levels was difficult because I had limited prior experience with level design.
+
+**Solution:**
+Used repeated playtesting and external feedback to refine enemy placement, level flow, and gameplay pacing.
+
+---
+
+## What I Learned
+
+This project significantly improved my understanding of:
+
+* Enemy AI design
+* Finite State Machines (FSM)
+* Scene tree organization
+* Debugging gameplay systems
+* Level design fundamentals
+* Code maintainability and refactoring
+* Playtesting and iteration
+
+One of the most valuable lessons from this project was learning when to rewrite systems instead of continuing with poorly structured code. Although rebuilding parts of the project initially slowed development, it resulted in cleaner and more maintainable code.
+
+---
+
+## Project Outcome
+
+This project was both challenging and rewarding. It strengthened my programming, debugging, and game design skills while giving me hands-on experience with AI systems and structured gameplay architecture.
+
+It remains one of the projects that contributed most to my growth as a game developer.
+
+---
+
+## Screenshots
+
+(Add screenshots here)
+
+---
+
+## Play the Game
+
+(Add itch.io link here)
