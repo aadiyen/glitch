@@ -57,6 +57,9 @@ This behavior creates more predictable gameplay and allows for better level desi
 
 ## Finite State Machine (FSM)
 
+<img width="315" height="352" alt="Screenshot 2026-06-13 210648" src="https://github.com/user-attachments/assets/01c13aa1-494c-477e-92ea-accd8b1cb574" />
+
+
 One of the most important systems I implemented was a Finite State Machine (FSM) for enemy behavior.
 
 The FSM allows enemies to:
